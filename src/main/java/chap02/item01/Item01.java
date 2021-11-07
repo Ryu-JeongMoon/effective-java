@@ -1,8 +1,8 @@
-package chap02;
+package chap02.item01;
 
-import static chap02.Item01.Card.JACK;
-import static chap02.Item01.Card.KING;
-import static chap02.Item01.Card.QUEEN;
+import static chap02.item01.Item01.Card.JACK;
+import static chap02.item01.Item01.Card.KING;
+import static chap02.item01.Item01.Card.QUEEN;
 
 import java.math.BigInteger;
 import java.sql.Date;

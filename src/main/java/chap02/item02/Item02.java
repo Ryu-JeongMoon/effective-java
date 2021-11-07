@@ -1,4 +1,4 @@
-package chap02;
+package chap02.item02;
 
 import lombok.Builder;
 import lombok.Data;
