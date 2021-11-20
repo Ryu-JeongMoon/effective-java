@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class Utility {
+
     public static final String YAHOO = "YAHOO~~";
 }
 
