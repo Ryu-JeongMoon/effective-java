@@ -1,6 +1,6 @@
 package chap03.item10;
 
-public final class PhoneNumber {
+public final class PhoneNumber implements Cloneable {
 
     private final int areaCode, prefix, lineNum;
     private int hashCode;
@@ -43,6 +43,22 @@ public final class PhoneNumber {
             hashCode = result;
         }
         return hashCode;
+    }
+
+    // 가독성과 디버깅을 위한 toString override
+    @Override
+    public String toString() {
+        return String.format("%03d-%03d-%04d", areaCode, prefix, lineNum);
+    }
+
+    // clone 의 반환형은 Object 인데 자바가 공변 반환 (covariant return typing) 을 지원하므로 PhoneNumber 로 반환 가능
+    @Override
+    public PhoneNumber clone() {
+        try {
+            return (PhoneNumber) super.clone();
+        } catch (CloneNotSupportedException e) {
+            throw new AssertionError();
+        }
     }
 }
 /*
