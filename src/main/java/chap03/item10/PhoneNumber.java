@@ -1,6 +1,14 @@
 package chap03.item10;
 
-public final class PhoneNumber implements Cloneable {
+import java.util.Comparator;
+
+public final class PhoneNumber implements Cloneable, Comparable<PhoneNumber> {
+
+    // comparingInt 에서 타입 명시 안 해주면 에러난당 자바 바보자식
+    private static final Comparator<PhoneNumber> COMPARATOR =
+        Comparator.comparingInt((PhoneNumber pn) -> pn.areaCode)
+            .thenComparingInt(pn -> pn.prefix)
+            .thenComparingInt(pn -> pn.lineNum);
 
     private final int areaCode, prefix, lineNum;
     private int hashCode;
@@ -59,6 +67,22 @@ public final class PhoneNumber implements Cloneable {
         } catch (CloneNotSupportedException e) {
             throw new AssertionError();
         }
+    }
+
+    // 어중간하게 삼항 연산자 쓸 바엔 가독성을 위해 if 문 쓰자
+    // COMPARATOR 를 이용해서 깔쌈하게 작성 가능한데 성능 저하됨 (약 10%)
+    @Override
+    public int compareTo(PhoneNumber o) {
+//        int result = Integer.compare(areaCode, o.areaCode);
+//        if (result == 0) {
+//            result = Integer.compare(prefix, o.prefix);
+//            if (result == 0) {
+//                result = Integer.compare(lineNum, o.lineNum);
+//            }
+//        }
+//        return result;
+
+        return COMPARATOR.compare(this, o);
     }
 }
 /*
