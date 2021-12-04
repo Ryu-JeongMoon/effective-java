@@ -1,6 +1,7 @@
 package chap05.item29;
 
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.EmptyStackException;
 
 public class GenericStack<E> {
@@ -18,9 +19,28 @@ public class GenericStack<E> {
         elements = (E[]) new Object[DEFAULT_INITIAL_CAPACITY];
     }
 
+    public static void main(String[] args) {
+        GenericStack<String> stack = new GenericStack<>();
+        for (String arg : args) {
+            stack.push(arg);
+        }
+
+        while (!stack.isEmpty()) {
+            System.out.println("stack.pop().toUpperCase() = " + stack.pop().toUpperCase());
+        }
+    }
+
     public void push(E e) {
         ensureCapacity();
         elements[size++] = e;
+    }
+
+    // 한정적 와일드카드 적용, E 를 상속한 모든 타입이 들어올 수 있다
+    // Parameterized Type 으로만 해두면 유연하지 못 하기 때문에 한정적 와일드카드 사용해야 한다
+    public void pushAll(Iterable<? extends E> src) {
+        for (E e : src) {
+            push(e);
+        }
     }
 
     private void ensureCapacity() {
@@ -40,19 +60,14 @@ public class GenericStack<E> {
         return result;
     }
 
-    public boolean isEmpty() {
-        return size == 0;
+    public void popAll(Collection<? super E> dst) {
+        while (!isEmpty()) {
+            dst.add(pop());
+        }
     }
 
-    public static void main(String[] args) {
-        GenericStack<String> stack = new GenericStack<>();
-        for (String arg : args) {
-            stack.push(arg);
-        }
-
-        while (!stack.isEmpty()) {
-            System.out.println("stack.pop().toUpperCase() = " + stack.pop().toUpperCase());
-        }
+    public boolean isEmpty() {
+        return size == 0;
     }
 }
 
