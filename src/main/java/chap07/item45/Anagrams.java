@@ -36,7 +36,7 @@ public class Anagrams {
         return new String(a);
     }
 
-    static Stream<BigInteger> primes() {
+    public static Stream<BigInteger> primes() {
         return Stream.iterate(BigInteger.TWO, BigInteger::nextProbablePrime);
     }
 }
