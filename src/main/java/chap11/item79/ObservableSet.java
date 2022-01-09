@@ -36,7 +36,7 @@ public class ObservableSet<E> extends ForwardingSet<E> {
     return copyOnObservers.remove(observer);
   }
 
-  // alien method 동기화 블록 바깥에서 호출한다
+  // alien method 동기화 블록 바깥에서 호출한다, 이를 open call, 열린 호출이라 한다
   private void notifyElementAdded(E element) {
     List<SetObserver<E>> snapshot;
     synchronized (observers) {
