@@ -5,10 +5,10 @@ package chap04.item19;
  */
 public class Item19 {
 
-    public static void main(String[] args) {
-        Sub sub = new Sub();
-        sub.overrideMe();
-    }
+  public static void main(String[] args) {
+    Sub sub = new Sub();
+    sub.overrideMe();
+  }
 }
 
 /*

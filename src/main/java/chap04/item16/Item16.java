@@ -5,11 +5,11 @@ package chap04.item16;
  */
 public class Item16 {
 
-    public static void main(String[] args) {
-        Time time = new Time(5, 35);
-        System.out.println("time = " + time.hour());
-        System.out.println("time = " + time.minute());
-    }
+  public static void main(String[] args) {
+    Time time = new Time(5, 35);
+    System.out.println("time = " + time.hour());
+    System.out.println("time = " + time.minute());
+  }
 }
 
 /*

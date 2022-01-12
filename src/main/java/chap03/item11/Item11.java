@@ -9,15 +9,15 @@ import java.util.Map;
  */
 public class Item11 {
 
-    public static void main(String[] args) {
-        Map<PhoneNumber, String> m = new HashMap<>();
-        m.put(new PhoneNumber(707,867,5309), "Jenny");
+  public static void main(String[] args) {
+    Map<PhoneNumber, String> m = new HashMap<>();
+    m.put(new PhoneNumber(707, 867, 5309), "Jenny");
 
-        // null 반환 ?!
-        // hashCode 재정의해주면 "Jenny" 가 나온당
-        String s = m.get(new PhoneNumber(707, 867, 5309));
-        System.out.println("s = " + s);
-    }
+    // null 반환 ?!
+    // hashCode 재정의해주면 "Jenny" 가 나온당
+    String s = m.get(new PhoneNumber(707, 867, 5309));
+    System.out.println("s = " + s);
+  }
 }
 /*
 왜 해줘야 하나용?

@@ -10,46 +10,46 @@ import java.util.List;
  */
 public class Item58 {
 
-    static Collection<Suit> suits = List.of(Suit.values());
-    static Collection<Rank> ranks = List.of(Rank.values());
+  static Collection<Suit> suits = List.of(Suit.values());
+  static Collection<Rank> ranks = List.of(Rank.values());
 
-    public static void main(String[] args) {
-        List<Card> deck = new ArrayList<>();
+  public static void main(String[] args) {
+    List<Card> deck = new ArrayList<>();
 
-        // 5줄의 코드지만 썩은내가 진동한다
-        for (Iterator<Suit> i = suits.iterator(); i.hasNext(); ) {
-            Suit suit = i.next();
-            for (Iterator<Rank> j = ranks.iterator(); j.hasNext(); ) {
-                deck.add(new Card(suit, j.next()));
-            }
-        }
-
-        // 으음 굿스멜
-        for (Suit suit : suits) {
-            for (Rank rank : ranks) {
-                deck.add(new Card(suit, rank));
-            }
-        }
+    // 5줄의 코드지만 썩은내가 진동한다
+    for (Iterator<Suit> i = suits.iterator(); i.hasNext(); ) {
+      Suit suit = i.next();
+      for (Iterator<Rank> j = ranks.iterator(); j.hasNext(); ) {
+        deck.add(new Card(suit, j.next()));
+      }
     }
 
-    enum Suit {
-        CLUB, DIAMOND, HEART, SPADE
+    // 으음 굿스멜
+    for (Suit suit : suits) {
+      for (Rank rank : ranks) {
+        deck.add(new Card(suit, rank));
+      }
     }
+  }
 
-    enum Rank {
-        ACE, DEUCE, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING
+  enum Suit {
+    CLUB, DIAMOND, HEART, SPADE
+  }
+
+  enum Rank {
+    ACE, DEUCE, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING
+  }
+
+  static class Card {
+
+    private final Suit suit;
+    private final Rank rank;
+
+    public Card(Suit suit, Rank rank) {
+      this.suit = suit;
+      this.rank = rank;
     }
-
-    static class Card {
-
-        private Suit suit;
-        private Rank rank;
-
-        public Card(Suit suit, Rank rank) {
-            this.suit = suit;
-            this.rank = rank;
-        }
-    }
+  }
 }
 
  /*

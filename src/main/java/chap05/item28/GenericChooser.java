@@ -8,17 +8,17 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class GenericChooser<T> {
 
-    private final List<? super T> choiceArray;
+  private final List<? super T> choiceArray;
 
-    // 생산자 매개변수에 와일드카드 타입 적용
-    public GenericChooser(Collection<? extends T> choiceArray) {
-        this.choiceArray = new ArrayList<>(choiceArray);
-    }
+  // 생산자 매개변수에 와일드카드 타입 적용
+  public GenericChooser(Collection<? extends T> choiceArray) {
+    this.choiceArray = new ArrayList<>(choiceArray);
+  }
 
-    public Object choose() {
-        Random rnd = ThreadLocalRandom.current();
-        return choiceArray.get(rnd.nextInt(choiceArray.size()));
-    }
+  public Object choose() {
+    Random rnd = ThreadLocalRandom.current();
+    return choiceArray.get(rnd.nextInt(choiceArray.size()));
+  }
 }
 
 /*

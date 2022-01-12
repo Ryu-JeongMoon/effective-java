@@ -9,16 +9,16 @@ import java.util.concurrent.ThreadLocalRandom;
  */
 public class Item59 {
 
-    public static void main(String[] args) {
-        Random random = new Random();
-        random.nextInt(50);
+  public static void main(String[] args) {
+    Random random = new Random();
+    random.nextInt(50);
 
-        ThreadLocalRandom current = ThreadLocalRandom.current();
-        current.nextInt(50);
+    ThreadLocalRandom current = ThreadLocalRandom.current();
+    current.nextInt(50);
 
-        SplittableRandom splittableRandom = new SplittableRandom();
-        splittableRandom.nextInt(50);
-    }
+    SplittableRandom splittableRandom = new SplittableRandom();
+    splittableRandom.nextInt(50);
+  }
 }
 
 /*

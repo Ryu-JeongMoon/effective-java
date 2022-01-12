@@ -5,17 +5,19 @@ package chap04.item25;
  */
 public class Item25 {
 
-    public static void main(String[] args) {
-        System.out.println(Pan.NAME + Da.NAME);
-    }
+  public static void main(String[] args) {
+    System.out.println(Pan.NAME + Da.NAME);
+  }
 
-    private static class Pan {
-        static final String NAME = "pan";
-    }
+  private static class Pan {
 
-    private static class Da {
-        static final String NAME = "da";
-    }
+    static final String NAME = "pan";
+  }
+
+  private static class Da {
+
+    static final String NAME = "da";
+  }
 }
 
 /*

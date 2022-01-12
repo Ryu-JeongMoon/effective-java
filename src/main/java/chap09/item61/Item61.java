@@ -5,13 +5,13 @@ package chap09.item61;
  */
 public class Item61 {
 
-    public static void main(String[] args) {
-        Integer five = new Integer(5);
-        Integer secondFive = new Integer(5);
+  public static void main(String[] args) {
+    Integer five = new Integer(5);
+    Integer secondFive = new Integer(5);
 
-        System.out.println("(five == secondFive) = " + (five == secondFive));
-        System.out.println("(five equals secondFive) = " + (five.equals(secondFive)));
-    }
+    System.out.println("(five == secondFive) = " + (five == secondFive));
+    System.out.println("(five equals secondFive) = " + (five.equals(secondFive)));
+  }
 }
 
 /*

@@ -1,14 +1,11 @@
 package chap11.item78;
 
-import java.util.concurrent.atomic.AtomicLong;
-
 /**
  * 공유 중인 가변 데이터는 동기화해 사용하라
  */
 public class Item78 {
 
   public static void main(String[] args) {
-
 
   }
 }

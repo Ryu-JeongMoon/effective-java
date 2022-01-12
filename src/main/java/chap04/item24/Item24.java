@@ -7,13 +7,13 @@ import chap04.item24.StaticMemberClass.NonStaticMember;
  */
 public class Item24 {
 
-    public static void main(String[] args) {
-        StaticMemberClass staticMemberClass = new StaticMemberClass(10);
-        NonStaticMember nonStaticMember = staticMemberClass.new NonStaticMember();
-        nonStaticMember.bear();
+  public static void main(String[] args) {
+    StaticMemberClass staticMemberClass = new StaticMemberClass(10);
+    NonStaticMember nonStaticMember = staticMemberClass.new NonStaticMember();
+    nonStaticMember.bear();
 
-        StaticMemberClass.StaticMember.panda();
-    }
+    StaticMemberClass.StaticMember.panda();
+  }
 }
 
 /*

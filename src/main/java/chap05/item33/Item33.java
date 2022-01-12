@@ -5,9 +5,9 @@ package chap05.item33;
  */
 public class Item33 {
 
-    public static void main(String[] args) {
-        System.out.println(String.class);
-    }
+  public static void main(String[] args) {
+    System.out.println(String.class);
+  }
 }
 
 /*

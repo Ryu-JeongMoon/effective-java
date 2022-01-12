@@ -8,7 +8,7 @@ import java.util.stream.LongStream;
  */
 public class Item48 {
 
-    public static void main(String[] args) {
+  public static void main(String[] args) {
 //         요녀석에 parallel 붙이면 아무런 결과도 출력하지 못 하면서 끝나지 않는다
 //        primes()
 //            .parallel()
@@ -17,19 +17,19 @@ public class Item48 {
 //            .limit(20)
 //            .forEach(System.out::println);
 
-        long pow = (long) (Math.pow(10, 8));
-        long start = System.currentTimeMillis();
-        System.out.println(pi(pow));
-        long end = System.currentTimeMillis();
-        System.out.println("end-start = " + (end - start) + "ms");
-    }
+    long pow = (long) (Math.pow(10, 8));
+    long start = System.currentTimeMillis();
+    System.out.println(pi(pow));
+    long end = System.currentTimeMillis();
+    System.out.println("end-start = " + (end - start) + "ms");
+  }
 
-    static long pi(long n) {
-        return LongStream.rangeClosed(2, n)
-            .mapToObj(BigInteger::valueOf)
-            .filter(i -> i.isProbablePrime(50))
-            .count();
-    }
+  static long pi(long n) {
+    return LongStream.rangeClosed(2, n)
+      .mapToObj(BigInteger::valueOf)
+      .filter(i -> i.isProbablePrime(50))
+      .count();
+  }
 }
 
 /*

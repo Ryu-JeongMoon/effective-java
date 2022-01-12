@@ -2,10 +2,10 @@ package chap04.item23;
 
 record RectangleFigure(double length, double width) implements Figure {
 
-    @Override
-    public double area() {
-        return length * width;
-    }
+  @Override
+  public double area() {
+    return length * width;
+  }
 }
 
 /*

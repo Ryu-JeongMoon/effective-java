@@ -8,35 +8,35 @@ import java.util.Date;
  */
 public class Item50 {
 
-    public static void main(String[] args) {
-        Date start = new Date();
-        Date end = new Date();
-        Period p = new Period(start, end);
+  public static void main(String[] args) {
+    Date start = new Date();
+    Date end = new Date();
+    Period p = new Period(start, end);
 
-        // 올바른 값으로 Period 인스턴스 생성 후 기존 값을 바꿔버린다면?
-        // 자바 8 이후로는 Instant 사용하자 (LocalDateTime, ZonedDateTime 도 사용 가능)
-        end.setYear(78);
-        System.out.println("p = " + p);
+    // 올바른 값으로 Period 인스턴스 생성 후 기존 값을 바꿔버린다면?
+    // 자바 8 이후로는 Instant 사용하자 (LocalDateTime, ZonedDateTime 도 사용 가능)
+    end.setYear(78);
+    System.out.println("p = " + p);
 
-        // Instant 내부에서 변수 final 로 선언되어 있음
-        Instant now = Instant.now();
-        System.out.println("now = " + now);
+    // Instant 내부에서 변수 final 로 선언되어 있음
+    Instant now = Instant.now();
+    System.out.println("now = " + now);
 
-        // 2번째 공격, get method 를 이용함
-        // 해결 -> get 에도 방어적 복사본으로 나간다
-        p.getStart().setYear(55);
-        p.getEnd().setYear(11);
-        System.out.println("p = " + p);
+    // 2번째 공격, get method 를 이용함
+    // 해결 -> get 에도 방어적 복사본으로 나간다
+    p.getStart().setYear(55);
+    p.getEnd().setYear(11);
+    System.out.println("p = " + p);
 
-        InstantPeriod instantPeriod = new InstantPeriod(Instant.now(), Instant.now());
-        System.out.println("instantPeriod = " + instantPeriod);
+    InstantPeriod instantPeriod = new InstantPeriod(Instant.now(), Instant.now());
+    System.out.println("instantPeriod = " + instantPeriod);
 
-        // record 좋당, 얘 쓰는 날이 빨리 왔으면~~~~
-        RecordPeriod recordPeriod = new RecordPeriod(Instant.now(), Instant.now());
-        System.out.println("recordPeriod = " + recordPeriod);
-        System.out.println(recordPeriod.start());
-        System.out.println(recordPeriod.end());
-    }
+    // record 좋당, 얘 쓰는 날이 빨리 왔으면~~~~
+    RecordPeriod recordPeriod = new RecordPeriod(Instant.now(), Instant.now());
+    System.out.println("recordPeriod = " + recordPeriod);
+    System.out.println(recordPeriod.start());
+    System.out.println(recordPeriod.end());
+  }
 }
 
 /*

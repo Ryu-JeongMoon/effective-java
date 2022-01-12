@@ -4,23 +4,25 @@ import lombok.NoArgsConstructor;
 
 class StaticMemberClass {
 
-    private int num;
+  private final int num;
 
-    public StaticMemberClass(int num) {
-        this.num = num;
-    }
+  public StaticMemberClass(int num) {
+    this.num = num;
+  }
 
-    static class StaticMember {
-        static void panda() {
-            int num = 5;
-            System.out.println("num = " + num);
-        }
-    }
+  static class StaticMember {
 
-    @NoArgsConstructor
-    class NonStaticMember {
-        void bear() {
-            System.out.println("num = " + num);
-        }
+    static void panda() {
+      int num = 5;
+      System.out.println("num = " + num);
     }
+  }
+
+  @NoArgsConstructor
+  class NonStaticMember {
+
+    void bear() {
+      System.out.println("num = " + num);
+    }
+  }
 }

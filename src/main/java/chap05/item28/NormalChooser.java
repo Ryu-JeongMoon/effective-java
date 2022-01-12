@@ -5,16 +5,16 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class NormalChooser {
 
-    private final Object[] choiceArray;
+  private final Object[] choiceArray;
 
-    public NormalChooser(Object[] choiceArray) {
-        this.choiceArray = choiceArray;
-    }
+  public NormalChooser(Object[] choiceArray) {
+    this.choiceArray = choiceArray;
+  }
 
-    public Object choose() {
-        Random rnd = ThreadLocalRandom.current();
-        return choiceArray[rnd.nextInt(choiceArray.length)];
-    }
+  public Object choose() {
+    Random rnd = ThreadLocalRandom.current();
+    return choiceArray[rnd.nextInt(choiceArray.length)];
+  }
 }
 
 /*

@@ -5,9 +5,9 @@ import lombok.ToString;
 @ToString
 public class Coin {
 
-    private String coin;
+  private final String coin;
 
-    public Coin() {
-        this.coin = "hooya~~";
-    }
+  public Coin() {
+    this.coin = "hooya~~";
+  }
 }

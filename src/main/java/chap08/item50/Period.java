@@ -8,8 +8,8 @@ import lombok.ToString;
 @ToString
 public final class Period {
 
-    private final Date start;
-    private final Date end;
+  private final Date start;
+  private final Date end;
 
 //    public Period(Date start, Date end) {
 //        if (start.compareTo(end) > 0) {
@@ -19,15 +19,15 @@ public final class Period {
 //        this.end = end;
 //    }
 
-    // 방어적 복사를 사용한 버전, parameter 로 들어오는 녀석에게 생성 후에는 의존하지 않는다
-    public Period(Date start, Date end) {
-        this.start = new Date(start.getTime());
-        this.end = new Date(end.getTime());
+  // 방어적 복사를 사용한 버전, parameter 로 들어오는 녀석에게 생성 후에는 의존하지 않는다
+  public Period(Date start, Date end) {
+    this.start = new Date(start.getTime());
+    this.end = new Date(end.getTime());
 
-        if (this.start.compareTo(this.end) > 0) {
-            throw new IllegalArgumentException(this.start + " should be earlier than " + this.end);
-        }
+    if (this.start.compareTo(this.end) > 0) {
+      throw new IllegalArgumentException(this.start + " should be earlier than " + this.end);
     }
+  }
 }
 
 /*

@@ -2,18 +2,22 @@ package chap04.item20;
 
 public class Interface {
 
-    interface Singer {
-        void sing(String title);
-    }
+  interface Singer {
 
-    interface SongWriter {
-        void compose(String title, String lyrics);
-    }
+    void sing(String title);
+  }
 
-    interface SingerSongWriter extends Singer, SongWriter {
-        void strum();
-        void actSensitive();
-    }
+  interface SongWriter {
+
+    void compose(String title, String lyrics);
+  }
+
+  interface SingerSongWriter extends Singer, SongWriter {
+
+    void strum();
+
+    void actSensitive();
+  }
 }
 
 /*

@@ -7,40 +7,40 @@ import java.lang.ref.Cleaner;
  */
 public class Room implements AutoCloseable {
 
-    private static final Cleaner cleaner = Cleaner.create();
+  private static final Cleaner cleaner = Cleaner.create();
 
-    private final State state;
+  private final State state;
 
-    private final Cleaner.Cleanable cleanable;
+  private final Cleaner.Cleanable cleanable;
 
-    public Room(int numJunkPiles) {
-        state = new State(numJunkPiles);
-        cleanable = cleaner.register(this, state);
+  public Room(int numJunkPiles) {
+    state = new State(numJunkPiles);
+    cleanable = cleaner.register(this, state);
+  }
+
+  @Override
+  public void close() {
+    System.out.println("청소하겠습니당");
+    cleanable.clean();
+  }
+
+  // 회수해갈 자원을 담은 클래스
+  // static 으로 선언하지 않으면 자동으로 외부 객체에 대한 참조를 갖게 된다
+  // 이것이 중요한 이유는 외부에 대한 참조를 갖고 있으면 GC 대상이 되지 않기 때문
+  private static class State implements Runnable {
+
+    int numJunkPiles;
+
+    State(int numJunkPiles) {
+      this.numJunkPiles = numJunkPiles;
     }
 
     @Override
-    public void close() {
-        System.out.println("청소하겠습니당");
-        cleanable.clean();
+    public void run() {
+      System.out.println("청소청소");
+      numJunkPiles = 0;
     }
-
-    // 회수해갈 자원을 담은 클래스
-    // static 으로 선언하지 않으면 자동으로 외부 객체에 대한 참조를 갖게 된다
-    // 이것이 중요한 이유는 외부에 대한 참조를 갖고 있으면 GC 대상이 되지 않기 때문
-    private static class State implements Runnable {
-
-        int numJunkPiles;
-
-        State(int numJunkPiles) {
-            this.numJunkPiles = numJunkPiles;
-        }
-
-        @Override
-        public void run() {
-            System.out.println("청소청소");
-            numJunkPiles = 0;
-        }
-    }
+  }
 }
 /*
 close() -> State run() 호출

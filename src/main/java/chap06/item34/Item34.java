@@ -9,16 +9,16 @@ import java.io.InputStreamReader;
  */
 public class Item34 {
 
-    public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+  public static void main(String[] args) throws IOException {
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        double weightInEarth = Double.parseDouble(br.readLine());
-        double mass = weightInEarth / Planet.EARTH.surfaceGravity();
+    double weightInEarth = Double.parseDouble(br.readLine());
+    double mass = weightInEarth / Planet.EARTH.surfaceGravity();
 
-        for (Planet planet : Planet.values()) {
-            System.out.printf("%s에서의 무게는 %f이다\n", planet, planet.surfaceWeight(mass));
-        }
+    for (Planet planet : Planet.values()) {
+      System.out.printf("%s에서의 무게는 %f이다\n", planet, planet.surfaceWeight(mass));
     }
+  }
 }
 
 /*

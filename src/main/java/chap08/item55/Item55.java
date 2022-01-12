@@ -9,24 +9,24 @@ import java.util.Optional;
  */
 public class Item55 {
 
-    public static void main(String[] args) {
+  public static void main(String[] args) {
 
+  }
+
+  static <E extends Comparable<E>> Optional<E> max(Collection<E> c) {
+    if (c.isEmpty()) {
+      return Optional.empty();
     }
 
-    static <E extends Comparable<E>> Optional<E> max(Collection<E> c) {
-        if (c.isEmpty()) {
-            return Optional.empty();
-        }
-
-        E result = null;
-        for (E e : c) {
-            if (result == null || e.compareTo(result) > 0) {
-                result = Objects.requireNonNull(e);
-            }
-        }
-
-        return Optional.of(result);
+    E result = null;
+    for (E e : c) {
+      if (result == null || e.compareTo(result) > 0) {
+        result = Objects.requireNonNull(e);
+      }
     }
+
+    return Optional.of(result);
+  }
 }
 
 /*

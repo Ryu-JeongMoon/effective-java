@@ -7,22 +7,22 @@ import java.util.HashMap;
  */
 public class Item43 {
 
-    public static void main(String[] args) {
-        HashMap<String, Integer> map = new HashMap<>();
-        map.put("panda", 5);
-        map.put("bear", 9);
+  public static void main(String[] args) {
+    HashMap<String, Integer> map = new HashMap<>();
+    map.put("panda", 5);
+    map.put("bear", 9);
 
-        String key = "panda";
-        // 람다를 이용할 시 간단한 연산에도 parameter 넘겨주어야 한다
-        map.merge(key, 10, (s, i) -> s + i);
+    String key = "panda";
+    // 람다를 이용할 시 간단한 연산에도 parameter 넘겨주어야 한다
+    map.merge(key, 10, (s, i) -> s + i);
 
-        // 메서드 참조 전달 시 더 간단해지는 코드
-        map.merge(key, 10, Integer::sum);
+    // 메서드 참조 전달 시 더 간단해지는 코드
+    map.merge(key, 10, Integer::sum);
 
-        for (Integer value : map.values()) {
-            System.out.println("value = " + value);
-        }
+    for (Integer value : map.values()) {
+      System.out.println("value = " + value);
     }
+  }
 }
 
 /*

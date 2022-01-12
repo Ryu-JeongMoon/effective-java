@@ -8,17 +8,17 @@ import java.util.Set;
  */
 public class Item27 {
 
-    public static void main(String[] args) {
-        // 비검사 경고 버전
-        // Set<String> stringSet = new HashSet();
+  public static void main(String[] args) {
+    // 비검사 경고 버전
+    // Set<String> stringSet = new HashSet();
 
-        Set<String> stringSet = new HashSet<>();
-        stringSet.add("yahoo");
+    Set<String> stringSet = new HashSet<>();
+    stringSet.add("yahoo");
 
-        for (String s : stringSet) {
-            System.out.println("s = " + s);
-        }
+    for (String s : stringSet) {
+      System.out.println("s = " + s);
     }
+  }
 }
 
 /*

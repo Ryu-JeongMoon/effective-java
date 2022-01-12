@@ -13,32 +13,32 @@ import java.util.stream.Stream;
 
 public class Anagrams {
 
-    public static void main(String[] args) throws IOException {
-        Path dictionary = Paths.get("src/main/java/chap07/item45/panda");
-        int minGroupSize = new Random().nextInt(3);
+  public static void main(String[] args) throws IOException {
+    Path dictionary = Paths.get("src/main/java/chap07/item45/panda");
+    int minGroupSize = new Random().nextInt(3);
 
-        try (Stream<String> words = Files.lines(dictionary)) {
-            words.collect(groupingBy(Anagrams::alphabetize))
-                .values()
-                .stream()
-                .filter(group -> group.size() >= minGroupSize)
-                .forEach(System.out::println);
-        }
-
-        primes()
-            .limit(10)
-            .forEach(System.out::println);
+    try (Stream<String> words = Files.lines(dictionary)) {
+      words.collect(groupingBy(Anagrams::alphabetize))
+        .values()
+        .stream()
+        .filter(group -> group.size() >= minGroupSize)
+        .forEach(System.out::println);
     }
 
-    private static String alphabetize(String s) {
-        char[] a = s.toCharArray();
-        Arrays.sort(a);
-        return new String(a);
-    }
+    primes()
+      .limit(10)
+      .forEach(System.out::println);
+  }
 
-    public static Stream<BigInteger> primes() {
-        return Stream.iterate(BigInteger.TWO, BigInteger::nextProbablePrime);
-    }
+  private static String alphabetize(String s) {
+    char[] a = s.toCharArray();
+    Arrays.sort(a);
+    return new String(a);
+  }
+
+  public static Stream<BigInteger> primes() {
+    return Stream.iterate(BigInteger.TWO, BigInteger::nextProbablePrime);
+  }
 }
 
 /*

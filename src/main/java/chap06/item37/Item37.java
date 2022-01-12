@@ -10,14 +10,14 @@ import java.util.Set;
  */
 public class Item37 {
 
-    public static void main(String[] args) {
-        EnumMap<LifeCycle, Set<Plant>> plantsByLifeCycle = new EnumMap<>(LifeCycle.class);
+  public static void main(String[] args) {
+    EnumMap<LifeCycle, Set<Plant>> plantsByLifeCycle = new EnumMap<>(LifeCycle.class);
 
-        for (LifeCycle lc : LifeCycle.values()) {
-            plantsByLifeCycle.put(lc, new HashSet<>());
-        }
-
+    for (LifeCycle lc : LifeCycle.values()) {
+      plantsByLifeCycle.put(lc, new HashSet<>());
     }
+
+  }
 }
 
 /*

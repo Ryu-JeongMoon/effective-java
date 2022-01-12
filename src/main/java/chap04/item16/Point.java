@@ -2,8 +2,8 @@ package chap04.item16;
 
 class Point {
 
-    public double x;
-    public double y;
+  public double x;
+  public double y;
 }
 
 /*

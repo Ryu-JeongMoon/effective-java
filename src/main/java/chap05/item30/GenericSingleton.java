@@ -1,6 +1,5 @@
 package chap05.item30;
 
-import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -8,44 +7,44 @@ import java.util.function.UnaryOperator;
 
 public class GenericSingleton {
 
-    private static final UnaryOperator<Object> IDENTITY_FN = t -> t;
+  private static final UnaryOperator<Object> IDENTITY_FN = t -> t;
 
-    public static void main(String[] args) {
-        String[] strings = {"Nylon", "Cycle", "Pick"};
-        UnaryOperator<String> sameString = GenericSingleton.identityFunction();
-        for (String string : strings) {
-            System.out.println(sameString.apply(string));
-        }
-
-        Number[] numbers = {1, 2.0, 3L};
-        UnaryOperator<Number> sameNumber = GenericSingleton.identityFunction();
-        for (Number number : numbers) {
-            System.out.println(sameNumber.apply(number));
-        }
+  public static void main(String[] args) {
+    String[] strings = {"Nylon", "Cycle", "Pick"};
+    UnaryOperator<String> sameString = GenericSingleton.identityFunction();
+    for (String string : strings) {
+      System.out.println(sameString.apply(string));
     }
 
-    @SuppressWarnings("unchecked")
-    public static <T> UnaryOperator<T> identityFunction() {
-        return (UnaryOperator<T>) IDENTITY_FN;
+    Number[] numbers = {1, 2.0, 3L};
+    UnaryOperator<Number> sameNumber = GenericSingleton.identityFunction();
+    for (Number number : numbers) {
+      System.out.println(sameNumber.apply(number));
+    }
+  }
+
+  @SuppressWarnings("unchecked")
+  public static <T> UnaryOperator<T> identityFunction() {
+    return (UnaryOperator<T>) IDENTITY_FN;
+  }
+
+  // ? super E, ? extends E 아리까리하네, PECS 외워라
+  // 입력 매개변수로부터 E 인스턴스 생성하므로 PE
+  // 매개변수화 타입은 한정적 와일드카드 타입으로 변경하는 것이 유연하므로 CS
+  public static <E extends Comparable<? super E>> Optional<E> max(List<? extends E> c) {
+    if (c.isEmpty()) {
+      return Optional.empty();
     }
 
-    // ? super E, ? extends E 아리까리하네, PECS 외워라
-    // 입력 매개변수로부터 E 인스턴스 생성하므로 PE
-    // 매개변수화 타입은 한정적 와일드카드 타입으로 변경하는 것이 유연하므로 CS
-    public static <E extends Comparable<? super E>> Optional<E> max(List<? extends E> c) {
-        if (c.isEmpty()) {
-            return Optional.empty();
-        }
-
-        E result = null;
-        for (E e : c) {
-            if (result == null || e.compareTo(result) > 0) {
-                result = Objects.requireNonNull(e);
-            }
-        }
-
-        return Optional.of(result);
+    E result = null;
+    for (E e : c) {
+      if (result == null || e.compareTo(result) > 0) {
+        result = Objects.requireNonNull(e);
+      }
     }
+
+    return Optional.of(result);
+  }
 }
 
 /*

@@ -9,28 +9,28 @@ import java.util.List;
  */
 public class Item26 {
 
-    private static Collection stamps = new ArrayList();
-    private static List<Coin> coins = new ArrayList<>();
+  private static final Collection stamps = new ArrayList();
+  private static final List<Coin> coins = new ArrayList<>();
 
-    public static void main(String[] args) {
-        stamps.add(new Stamp());
-        stamps.add(new Coin());
+  public static void main(String[] args) {
+    stamps.add(new Stamp());
+    stamps.add(new Coin());
 
-        for (Object arg : stamps) {
-            System.out.println("arg = " + arg);
-        }
-
-        // compile error
-        // coins.add(new Stamp());
-
-        coins.add(new Coin());
-        coins.add(new Coin());
-
-        // Generics 덕분에 형변환도 필요없다, 따봉제네릭스
-        for (Coin coin : coins) {
-            System.out.println("coin = " + coin);
-        }
+    for (Object arg : stamps) {
+      System.out.println("arg = " + arg);
     }
+
+    // compile error
+    // coins.add(new Stamp());
+
+    coins.add(new Coin());
+    coins.add(new Coin());
+
+    // Generics 덕분에 형변환도 필요없다, 따봉제네릭스
+    for (Coin coin : coins) {
+      System.out.println("coin = " + coin);
+    }
+  }
 }
 
 /*

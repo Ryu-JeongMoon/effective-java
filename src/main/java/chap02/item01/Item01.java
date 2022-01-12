@@ -14,29 +14,29 @@ import java.util.EnumSet;
  */
 public class Item01 {
 
-    public static void main(String[] args) {
-        Instant instant = Instant.now();
-        Date.from(instant);
+  public static void main(String[] args) {
+    Instant instant = Instant.now();
+    Date.from(instant);
 
-        EnumSet.of(JACK, QUEEN, KING);
+    EnumSet.of(JACK, QUEEN, KING);
 
-        BigInteger.valueOf(Integer.MAX_VALUE);
+    BigInteger.valueOf(Integer.MAX_VALUE);
 
-        StackWalker.getInstance();
+    StackWalker.getInstance();
 
-        // getType -> getInstance 와 같은데 Files 생성이 아니라 FileStore 생성인 것처럼 다른 클래스 생성할 때 사용
-        // Files.getFileStore(Path.of("어쩌구 저쩌구"));
+    // getType -> getInstance 와 같은데 Files 생성이 아니라 FileStore 생성인 것처럼 다른 클래스 생성할 때 사용
+    // Files.getFileStore(Path.of("어쩌구 저쩌구"));
 
-        // newType -> newInstance 와 같음, 다른 클래스 생성할 때 사용
-        // BufferedReader br = Files.newBufferedReader(path);
+    // newType -> newInstance 와 같음, 다른 클래스 생성할 때 사용
+    // BufferedReader br = Files.newBufferedReader(path);
 
-        // type -> getType, newType 간략 버전
-        // List<Complaint> litany = Collections.list(legacyLitany);
-    }
+    // type -> getType, newType 간략 버전
+    // List<Complaint> litany = Collections.list(legacyLitany);
+  }
 
-    enum Card {
-        JACK, QUEEN, KING
-    }
+  enum Card {
+    JACK, QUEEN, KING
+  }
 }
 
 /*

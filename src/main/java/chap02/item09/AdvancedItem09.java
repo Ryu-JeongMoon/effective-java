@@ -10,35 +10,35 @@ import java.io.OutputStream;
 
 public class AdvancedItem09 {
 
-    static int BUFFER_SIZE = 255;
+  static int BUFFER_SIZE = 255;
 
-    public static void main(String[] args) {
-        System.out.println(firstLineOfFile("java"));
+  public static void main(String[] args) {
+    System.out.println(firstLineOfFile("java"));
 
-        copy("naver", "kakao");
+    copy("naver", "kakao");
+  }
+
+  static String firstLineOfFile(String path) {
+    try (BufferedReader br = new BufferedReader(new FileReader(path))) {
+      return br.readLine();
+    } catch (IOException e) {
+      return "PANDA";
     }
+  }
 
-    static String firstLineOfFile(String path) {
-        try (BufferedReader br = new BufferedReader(new FileReader(path))) {
-            return br.readLine();
-        } catch (IOException e) {
-            return "PANDA";
-        }
+  // 하나의 try() 안에 여러개 넣을 수 있구만 ??
+  static void copy(String src, String dst) {
+    try (InputStream in = new FileInputStream(src);
+      OutputStream out = new FileOutputStream(dst)) {
+      byte[] buf = new byte[BUFFER_SIZE];
+      int n;
+      while ((n = in.read(buf)) >= 0) {
+        out.write(buf, 0, n);
+      }
+    } catch (IOException e) {
+      System.out.println("바보 자식아");
     }
-
-    // 하나의 try() 안에 여러개 넣을 수 있구만 ??
-    static void copy(String src, String dst) {
-        try (InputStream in = new FileInputStream(src);
-            OutputStream out = new FileOutputStream(dst)) {
-            byte[] buf = new byte[BUFFER_SIZE];
-            int n;
-            while ((n = in.read(buf)) >= 0) {
-                out.write(buf, 0, n);
-            }
-        } catch (IOException e) {
-            System.out.println("바보 자식아");
-        }
-    }
+  }
 }
 /*
 try-finally 를 중첩해서 쓰는 경우엔 첫 예외가 두번째, 세번째 예외에 의해 가려지는 경우가 생긴다

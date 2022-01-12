@@ -6,69 +6,69 @@ import java.util.EmptyStackException;
 
 public class GenericStack<E> {
 
-    private static final int DEFAULT_INITIAL_CAPACITY = 16;
-    private E[] elements;
-    private int size = 0;
+  private static final int DEFAULT_INITIAL_CAPACITY = 16;
+  private E[] elements;
+  private int size = 0;
 
-    // 첫번째 해결 방법, Object 배열로 만든 후 타입을 확실히 아니까 @SuppressWarnings 써준다
-    // 이놈으로 쓰면 코드가 짧아 가독성이 좋은데 단점으로는 컴파일 타입과 런타임 타입이 다르기 때문에
-    // Heap Pollution 이 일어난다
-    @SuppressWarnings("unchecked")
-    public GenericStack() {
-        // 요기서 에러 발생
-        elements = (E[]) new Object[DEFAULT_INITIAL_CAPACITY];
+  // 첫번째 해결 방법, Object 배열로 만든 후 타입을 확실히 아니까 @SuppressWarnings 써준다
+  // 이놈으로 쓰면 코드가 짧아 가독성이 좋은데 단점으로는 컴파일 타입과 런타임 타입이 다르기 때문에
+  // Heap Pollution 이 일어난다
+  @SuppressWarnings("unchecked")
+  public GenericStack() {
+    // 요기서 에러 발생
+    elements = (E[]) new Object[DEFAULT_INITIAL_CAPACITY];
+  }
+
+  public static void main(String[] args) {
+    GenericStack<String> stack = new GenericStack<>();
+    for (String arg : args) {
+      stack.push(arg);
     }
 
-    public static void main(String[] args) {
-        GenericStack<String> stack = new GenericStack<>();
-        for (String arg : args) {
-            stack.push(arg);
-        }
+    while (!stack.isEmpty()) {
+      System.out.println("stack.pop().toUpperCase() = " + stack.pop().toUpperCase());
+    }
+  }
 
-        while (!stack.isEmpty()) {
-            System.out.println("stack.pop().toUpperCase() = " + stack.pop().toUpperCase());
-        }
+  public void push(E e) {
+    ensureCapacity();
+    elements[size++] = e;
+  }
+
+  // 한정적 와일드카드 적용, E 를 상속한 모든 타입이 들어올 수 있다
+  // Parameterized Type 으로만 해두면 유연하지 못 하기 때문에 한정적 와일드카드 사용해야 한다
+  public void pushAll(Iterable<? extends E> src) {
+    for (E e : src) {
+      push(e);
+    }
+  }
+
+  private void ensureCapacity() {
+    if (elements.length == size) {
+      elements = Arrays.copyOf(elements, 2 * size + 1);
+    }
+  }
+
+  // 뺀놈 메모리 해제해주기
+  public E pop() {
+    if (size == 0) {
+      throw new EmptyStackException();
     }
 
-    public void push(E e) {
-        ensureCapacity();
-        elements[size++] = e;
-    }
+    E result = elements[--size];
+    elements[size] = null;
+    return result;
+  }
 
-    // 한정적 와일드카드 적용, E 를 상속한 모든 타입이 들어올 수 있다
-    // Parameterized Type 으로만 해두면 유연하지 못 하기 때문에 한정적 와일드카드 사용해야 한다
-    public void pushAll(Iterable<? extends E> src) {
-        for (E e : src) {
-            push(e);
-        }
+  public void popAll(Collection<? super E> dst) {
+    while (!isEmpty()) {
+      dst.add(pop());
     }
+  }
 
-    private void ensureCapacity() {
-        if (elements.length == size) {
-            elements = Arrays.copyOf(elements, 2 * size + 1);
-        }
-    }
-
-    // 뺀놈 메모리 해제해주기
-    public E pop() {
-        if (size == 0) {
-            throw new EmptyStackException();
-        }
-
-        E result = elements[--size];
-        elements[size] = null;
-        return result;
-    }
-
-    public void popAll(Collection<? super E> dst) {
-        while (!isEmpty()) {
-            dst.add(pop());
-        }
-    }
-
-    public boolean isEmpty() {
-        return size == 0;
-    }
+  public boolean isEmpty() {
+    return size == 0;
+  }
 }
 
 /*

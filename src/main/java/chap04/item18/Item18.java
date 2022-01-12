@@ -7,13 +7,13 @@ import java.util.List;
  */
 public class Item18 {
 
-    public static void main(String[] args) {
-        InstrumentedHashSet<String> s = new InstrumentedHashSet<>();
-        s.addAll(List.of("yaho", "panda", "bear"));
+  public static void main(String[] args) {
+    InstrumentedHashSet<String> s = new InstrumentedHashSet<>();
+    s.addAll(List.of("yaho", "panda", "bear"));
 
-        // 오잉 6?!
-        System.out.println("s = " + s.getAddCount());
-    }
+    // 오잉 6?!
+    System.out.println("s = " + s.getAddCount());
+  }
 }
 
 /*

@@ -14,30 +14,30 @@ import java.util.TreeSet;
  */
 public class Item45 {
 
-    public static void main(String[] args) throws FileNotFoundException {
-        File dictionary = new File("src/main/java/chap07/item45/panda");
-        int minGroupSize = 1;
+  public static void main(String[] args) throws FileNotFoundException {
+    File dictionary = new File("src/main/java/chap07/item45/panda");
+    int minGroupSize = 1;
 
-        Map<String, Set<String>> groups = new HashMap<>();
-        try (Scanner s = new Scanner(dictionary)) {
-            while (s.hasNext()) {
-                String word = s.next();
-                groups.computeIfAbsent(alphabetize(word), (unused) -> new TreeSet<>()).add(word);
-            }
-        }
-
-        for (Set<String> group : groups.values()) {
-            if (group.size() >= minGroupSize) {
-                System.out.println(group.size() + " : " + group);
-            }
-        }
+    Map<String, Set<String>> groups = new HashMap<>();
+    try (Scanner s = new Scanner(dictionary)) {
+      while (s.hasNext()) {
+        String word = s.next();
+        groups.computeIfAbsent(alphabetize(word), (unused) -> new TreeSet<>()).add(word);
+      }
     }
 
-    private static String alphabetize(String s) {
-        char[] a = s.toCharArray();
-        Arrays.sort(a);
-        return new String(a);
+    for (Set<String> group : groups.values()) {
+      if (group.size() >= minGroupSize) {
+        System.out.println(group.size() + " : " + group);
+      }
     }
+  }
+
+  private static String alphabetize(String s) {
+    char[] a = s.toCharArray();
+    Arrays.sort(a);
+    return new String(a);
+  }
 }
 
 /*

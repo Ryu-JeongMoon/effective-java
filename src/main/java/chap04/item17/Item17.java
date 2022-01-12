@@ -5,27 +5,27 @@ package chap04.item17;
  */
 public class Item17 {
 
-    public static void main(String[] args) {
-        Complex c1 = Complex.valueOf(5.5,  6.6);
-        Complex c2 = Complex.valueOf(511.5,  6.63434);
-        Complex c3 = c1.clone();
+  public static void main(String[] args) {
+    Complex c1 = Complex.valueOf(5.5, 6.6);
+    Complex c2 = Complex.valueOf(511.5, 6.63434);
+    Complex c3 = c1.clone();
 
-        System.out.println(c1.im());
-        System.out.println(c1.re());
+    System.out.println(c1.im());
+    System.out.println(c1.re());
 
-        System.out.println(c1.plus(c2));
-        System.out.println(c1.minus(c2));
+    System.out.println(c1.plus(c2));
+    System.out.println(c1.minus(c2));
 
-        // clone == 비교는 false
-        System.out.println("(c1 == c2) = " + (c1 == c2));
-        System.out.println("(c1 == c3) = " + (c1 == c3));
-        System.out.println("(c2 == c3) = " + (c2 == c3));
+    // clone == 비교는 false
+    System.out.println("(c1 == c2) = " + (c1 == c2));
+    System.out.println("(c1 == c3) = " + (c1 == c3));
+    System.out.println("(c2 == c3) = " + (c2 == c3));
 
-        // clone equals 비교는 true
-        System.out.println("(c1.equals(c2)) = " + (c1.equals(c2)));
-        System.out.println("(c1.equals(c3)) = " + (c1.equals(c3)));
-        System.out.println("(c2.equals(c3)) = " + (c2.equals(c3)));
-    }
+    // clone equals 비교는 true
+    System.out.println("(c1.equals(c2)) = " + (c1.equals(c2)));
+    System.out.println("(c1.equals(c3)) = " + (c1.equals(c3)));
+    System.out.println("(c2.equals(c3)) = " + (c2.equals(c3)));
+  }
 }
 
 /*

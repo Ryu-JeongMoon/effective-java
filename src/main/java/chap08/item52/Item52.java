@@ -10,18 +10,18 @@ import java.util.HashSet;
  */
 public class Item52 {
 
-    public static void main(String[] args) {
-        Collection<?>[] collections = {
-            new HashSet<String>(),
-            new ArrayList<Integer>(),
-            new HashMap<String, String>().values()
-        };
+  public static void main(String[] args) {
+    Collection<?>[] collections = {
+      new HashSet<String>(),
+      new ArrayList<Integer>(),
+      new HashMap<String, String>().values()
+    };
 
-        // Collection 만 세번 나온다
-        for (Collection<?> collection : collections) {
-            System.out.println(CollectionClassifier.classify(collection));
-        }
+    // Collection 만 세번 나온다
+    for (Collection<?> collection : collections) {
+      System.out.println(CollectionClassifier.classify(collection));
     }
+  }
 }
 
 /*

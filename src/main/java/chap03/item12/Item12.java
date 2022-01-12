@@ -7,10 +7,10 @@ import chap03.item10.PhoneNumber;
  */
 public class Item12 {
 
-    public static void main(String[] args) {
-        PhoneNumber phoneNumber = new PhoneNumber(191, 455, 343);
-        System.out.println("phoneNumber = " + phoneNumber);
-    }
+  public static void main(String[] args) {
+    PhoneNumber phoneNumber = new PhoneNumber(191, 455, 343);
+    System.out.println("phoneNumber = " + phoneNumber);
+  }
 }
 
 /*

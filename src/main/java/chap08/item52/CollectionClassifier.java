@@ -6,15 +6,15 @@ import java.util.Set;
 
 public class CollectionClassifier {
 
-    public static String classify(Set<?> s) {
-        return "Set";
-    }
+  public static String classify(Set<?> s) {
+    return "Set";
+  }
 
-    public static String classify(List<?> s) {
-        return "List";
-    }
+  public static String classify(List<?> s) {
+    return "List";
+  }
 
-    public static String classify(Collection<?> s) {
-        return "Collection";
-    }
+  public static String classify(Collection<?> s) {
+    return "Collection";
+  }
 }

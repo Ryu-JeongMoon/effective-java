@@ -5,10 +5,10 @@ package chap06.item35;
  */
 public class Item35 {
 
-    public static void main(String[] args) {
-        System.out.println(Ensemble.SOLO.numberOfMusicians());
-        System.out.println(Ensemble.DUET.numberOfMusicians());
-    }
+  public static void main(String[] args) {
+    System.out.println(Ensemble.SOLO.numberOfMusicians());
+    System.out.println(Ensemble.DUET.numberOfMusicians());
+  }
 }
 
 /*

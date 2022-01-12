@@ -8,24 +8,24 @@ import lombok.Data;
  */
 public class Item02 {
 
-    public static void main(String[] args) {
-        NutritionFacts nutritionFacts = NutritionFacts.builder()
-            .calories(500).build();
+  public static void main(String[] args) {
+    NutritionFacts nutritionFacts = NutritionFacts.builder()
+      .calories(500).build();
 
-        System.out.println(nutritionFacts);
-    }
+    System.out.println(nutritionFacts);
+  }
 
-    @Data
-    @Builder
-    static class NutritionFacts {
+  @Data
+  @Builder
+  static class NutritionFacts {
 
-        private final int servingSize;
-        private final int servings;
-        private final int calories;
-        private final int fat;
-        private final int sodium;
-        private final int carbohydrate;
-    }
+    private final int servingSize;
+    private final int servings;
+    private final int calories;
+    private final int fat;
+    private final int sodium;
+    private final int carbohydrate;
+  }
 }
 
 /*

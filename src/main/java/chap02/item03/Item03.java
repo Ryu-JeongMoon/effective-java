@@ -5,32 +5,32 @@ package chap02.item03;
  */
 public class Item03 {
 
-    public static void main(String[] args) {
-        System.out.println(EnumElvis.INSTANCE);
-        System.out.println((EnumElvis.INSTANCE == EnumElvis.INSTANCE));
+  public static void main(String[] args) {
+    System.out.println(EnumElvis.INSTANCE);
+    System.out.println((EnumElvis.INSTANCE == EnumElvis.INSTANCE));
 
-        System.out.println((Elvis.INSTANCE == Elvis.INSTANCE));
-        Elvis i1 = Elvis.getInstance();
-        Elvis i2 = Elvis.getInstance();
+    System.out.println((Elvis.INSTANCE == Elvis.INSTANCE));
+    Elvis i1 = Elvis.getInstance();
+    Elvis i2 = Elvis.getInstance();
 
-        System.out.println((i1 == i2));
+    System.out.println((i1 == i2));
+  }
+
+  enum EnumElvis {
+    INSTANCE
+  }
+
+  static class Elvis {
+
+    public static final Elvis INSTANCE = new Elvis();
+
+    private Elvis() {
     }
 
-    enum EnumElvis {
-        INSTANCE
+    public static Elvis getInstance() {
+      return INSTANCE;
     }
-
-    static class Elvis {
-
-        public static final Elvis INSTANCE = new Elvis();
-
-        private Elvis() {
-        }
-
-        public static Elvis getInstance() {
-            return INSTANCE;
-        }
-    }
+  }
 }
 
 /*

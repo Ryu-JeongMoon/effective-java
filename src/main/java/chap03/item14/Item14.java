@@ -9,34 +9,34 @@ import java.util.Comparator;
  */
 public class Item14 {
 
-    // hashCodeOrder 3단 변신, 인텔리센스가 친절히 안내해주는구만
-    static Comparator<Object> hashCodeOrder1 = new Comparator<Object>() {
-        @Override
-        public int compare(Object o1, Object o2) {
-            return Integer.compare(o1.hashCode(), o2.hashCode());
-        }
-    };
-
-    static Comparator<Object> hashCodeOrder2 = (o1, o2) -> Integer.compare(o1.hashCode(), o2.hashCode());
-
-    static Comparator<Object> hashCodeOrder3 = Comparator.comparingInt(Object::hashCode);
-
-    public static void main(String[] args) {
-        BigDecimal b1 = new BigDecimal("1.0");
-        BigDecimal b2 = new BigDecimal("1.00");
-
-        // equals 에서는 false 반환, compareTo 에서는 0 반환?!
-        // BigDecimal 의 equals, compareTo 가 일관적이지 않게 작성되어 있기 때문
-        System.out.println("b1.equals(b2) = " + b1.equals(b2));
-        System.out.println("b1.equals(b2) = " + b1.compareTo(b2));
-
-        CaseInsensitiveString yahoo = new CaseInsensitiveString("Yahoo");
-        System.out.println("yahoo = " + yahoo);
-
-        System.out.println(hashCodeOrder1.compare(5353, 43434));
-        System.out.println(hashCodeOrder2.compare(5353, 44));
-        System.out.println(hashCodeOrder3.compare(55, 55));
+  // hashCodeOrder 3단 변신, 인텔리센스가 친절히 안내해주는구만
+  static Comparator<Object> hashCodeOrder1 = new Comparator<Object>() {
+    @Override
+    public int compare(Object o1, Object o2) {
+      return Integer.compare(o1.hashCode(), o2.hashCode());
     }
+  };
+
+  static Comparator<Object> hashCodeOrder2 = (o1, o2) -> Integer.compare(o1.hashCode(), o2.hashCode());
+
+  static Comparator<Object> hashCodeOrder3 = Comparator.comparingInt(Object::hashCode);
+
+  public static void main(String[] args) {
+    BigDecimal b1 = new BigDecimal("1.0");
+    BigDecimal b2 = new BigDecimal("1.00");
+
+    // equals 에서는 false 반환, compareTo 에서는 0 반환?!
+    // BigDecimal 의 equals, compareTo 가 일관적이지 않게 작성되어 있기 때문
+    System.out.println("b1.equals(b2) = " + b1.equals(b2));
+    System.out.println("b1.equals(b2) = " + b1.compareTo(b2));
+
+    CaseInsensitiveString yahoo = new CaseInsensitiveString("Yahoo");
+    System.out.println("yahoo = " + yahoo);
+
+    System.out.println(hashCodeOrder1.compare(5353, 43434));
+    System.out.println(hashCodeOrder2.compare(5353, 44));
+    System.out.println(hashCodeOrder3.compare(55, 55));
+  }
 }
 
 /*

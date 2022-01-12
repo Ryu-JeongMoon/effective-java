@@ -8,30 +8,30 @@ import java.util.concurrent.ThreadLocalRandom;
  */
 public class Item32 {
 
-    public static void main(String[] args) {
-        List<String> panda = List.of("panda", "bear");
-        dangerous(panda);
+  public static void main(String[] args) {
+    List<String> panda = List.of("panda", "bear");
+    dangerous(panda);
 
-        List<String> strings = pickTwo("Good", "Fast", "Cool");
-        strings.forEach(System.out::println);
-    }
+    List<String> strings = pickTwo("Good", "Fast", "Cool");
+    strings.forEach(System.out::println);
+  }
 
-    // Heap Pollution 발생
-    static void dangerous(List<String>... stringLists) {
-        List<Integer> integers = List.of(42);
-        Object[] objects = stringLists;
-        objects[0] = integers;
-        String s = stringLists[0].get(0);
-    }
+  // Heap Pollution 발생
+  static void dangerous(List<String>... stringLists) {
+    List<Integer> integers = List.of(42);
+    Object[] objects = stringLists;
+    objects[0] = integers;
+    String s = stringLists[0].get(0);
+  }
 
-    static <T> List<T> pickTwo(T a, T b, T c) {
-        return switch (ThreadLocalRandom.current().nextInt(3)) {
-            case 0 -> List.of(a, b);
-            case 1 -> List.of(a, c);
-            case 2 -> List.of(b, c);
-            default -> List.of();
-        };
-    }
+  static <T> List<T> pickTwo(T a, T b, T c) {
+    return switch (ThreadLocalRandom.current().nextInt(3)) {
+      case 0 -> List.of(a, b);
+      case 1 -> List.of(a, c);
+      case 2 -> List.of(b, c);
+      default -> List.of();
+    };
+  }
 }
 
 /*

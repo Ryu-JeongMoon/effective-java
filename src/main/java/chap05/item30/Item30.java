@@ -9,38 +9,38 @@ import java.util.Set;
  */
 public class Item30 {
 
-    public static void main(String[] args) {
-        Set<String> guys = Set.of("Tom", "Jerry", "Harry");
-        Set<String> stooges = Set.of("Facebook", "Google", "Curly");
-        Set<String> aflCio = union(guys, stooges);
-        System.out.println("aflCio = " + aflCio);
+  public static void main(String[] args) {
+    Set<String> guys = Set.of("Tom", "Jerry", "Harry");
+    Set<String> stooges = Set.of("Facebook", "Google", "Curly");
+    Set<String> aflCio = union(guys, stooges);
+    System.out.println("aflCio = " + aflCio);
 
-        // 오오 신기방기
-        Set<Integer> integers = Set.of(1, 3, 5);
-        Set<Double> doubles = Set.of(2.0, 4.0, 6.0);
-        Set<Number> numbers = union(integers, doubles);
-        System.out.println("numbers = " + numbers);
+    // 오오 신기방기
+    Set<Integer> integers = Set.of(1, 3, 5);
+    Set<Double> doubles = Set.of(2.0, 4.0, 6.0);
+    Set<Number> numbers = union(integers, doubles);
+    System.out.println("numbers = " + numbers);
 
-        // 갓땜
-        Set<String> strings = Set.of("1", "2", "3");
-        Set<Integer> integers1 = Set.of(1, 2, 3);
-        Set<? extends Serializable> union = union(strings, integers1);
-        System.out.println("union = " + union);
-    }
+    // 갓땜
+    Set<String> strings = Set.of("1", "2", "3");
+    Set<Integer> integers1 = Set.of(1, 2, 3);
+    Set<? extends Serializable> union = union(strings, integers1);
+    System.out.println("union = " + union);
+  }
 
-    // 문제 있는 자식
-    public static Set unionRawType(Set s1, Set s2) {
-        Set result = new HashSet(s1);
-        result.addAll(s2);
-        return result;
-    }
+  // 문제 있는 자식
+  public static Set unionRawType(Set s1, Set s2) {
+    Set result = new HashSet(s1);
+    result.addAll(s2);
+    return result;
+  }
 
-    // 문제 없는 자식
-    public static <E> Set<E> union(Set<? extends E> s1, Set<? extends E> s2) {
-        HashSet<E> result = new HashSet<>(s1);
-        result.addAll(s2);
-        return result;
-    }
+  // 문제 없는 자식
+  public static <E> Set<E> union(Set<? extends E> s1, Set<? extends E> s2) {
+    HashSet<E> result = new HashSet<>(s1);
+    result.addAll(s2);
+    return result;
+  }
 }
 
 /*

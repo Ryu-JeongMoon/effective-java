@@ -4,17 +4,17 @@ import java.time.Instant;
 
 public final class Sub extends Super {
 
-    private final Instant instant;
+  private final Instant instant;
 
-    public Sub() {
-        // super() 이 자식 숨어있음
-        instant = Instant.now();
-    }
+  public Sub() {
+    // super() 이 자식 숨어있음
+    instant = Instant.now();
+  }
 
-    @Override
-    public void overrideMe() {
-        System.out.println("instant = " + instant);
-    }
+  @Override
+  public void overrideMe() {
+    System.out.println("instant = " + instant);
+  }
 }
 
 /*

@@ -9,38 +9,38 @@ import java.util.Objects;
  */
 public class Item20 {
 
-    public static void main(String[] args) {
-        int[] intArray = {5, 1, 534, 4};
-        List<Integer> integerList = intArrayAsList(intArray);
-        System.out.println("integerList = " + integerList);
+  public static void main(String[] args) {
+    int[] intArray = {5, 1, 534, 4};
+    List<Integer> integerList = intArrayAsList(intArray);
+    System.out.println("integerList = " + integerList);
 
-        ConcreteMapEntry<String, Integer> pandaMapEntry = new ConcreteMapEntry<>("panda", 15);
-        System.out.println("pandaMapEntry.getKey() = " + pandaMapEntry.getKey());
-        System.out.println("pandaMapEntry.getValue() = " + pandaMapEntry.getValue());
-    }
+    ConcreteMapEntry<String, Integer> pandaMapEntry = new ConcreteMapEntry<>("panda", 15);
+    System.out.println("pandaMapEntry.getKey() = " + pandaMapEntry.getKey());
+    System.out.println("pandaMapEntry.getValue() = " + pandaMapEntry.getValue());
+  }
 
-    static List<Integer> intArrayAsList(int[] a) {
-        Objects.requireNonNull(a);
+  static List<Integer> intArrayAsList(int[] a) {
+    Objects.requireNonNull(a);
 
-        return new AbstractList<>() {
-            @Override
-            public Integer get(int index) {
-                return a[index];
-            }
+    return new AbstractList<>() {
+      @Override
+      public Integer get(int index) {
+        return a[index];
+      }
 
-            @Override
-            public Integer set(int index, Integer element) {
-                int oldVal = a[index];
-                a[index] = element;
-                return oldVal;
-            }
+      @Override
+      public Integer set(int index, Integer element) {
+        int oldVal = a[index];
+        a[index] = element;
+        return oldVal;
+      }
 
-            @Override
-            public int size() {
-                return a.length;
-            }
-        };
-    }
+      @Override
+      public int size() {
+        return a.length;
+      }
+    };
+  }
 }
 
 /*

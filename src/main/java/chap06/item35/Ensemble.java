@@ -6,18 +6,18 @@ public enum Ensemble {
 //    SOLO, DUET, TRIO, QUARTET, QUINTET,
 //    SEXTET, SEPTET, OCTET, NONET, DECTET;
 
-    SOLO(1), DUET(2), TRIO(3), QUARTET(4), QUINTET(5),
-    SEXTET(6), SEPTET(7), OCTET(8), NONET(9), DECTET(10);
+  SOLO(1), DUET(2), TRIO(3), QUARTET(4), QUINTET(5),
+  SEXTET(6), SEPTET(7), OCTET(8), NONET(9), DECTET(10);
 
-    private final int numberOfMusicians;
+  private final int numberOfMusicians;
 
-    Ensemble(int numberOfMusicians) {
-        this.numberOfMusicians = numberOfMusicians;
-    }
+  Ensemble(int numberOfMusicians) {
+    this.numberOfMusicians = numberOfMusicians;
+  }
 
-    public int numberOfMusicians() {
-        return numberOfMusicians;
-    }
+  public int numberOfMusicians() {
+    return numberOfMusicians;
+  }
 }
 
 /*

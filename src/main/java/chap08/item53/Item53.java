@@ -7,32 +7,32 @@ import java.util.Arrays;
  */
 public class Item53 {
 
-    public static void main(String[] args) {
-        System.out.println(sum(1, 3, 5, 5, 3, 1));
-        System.out.println(graciousSum(1, 3, 5, 5, 3, 1));
+  public static void main(String[] args) {
+    System.out.println(sum(1, 3, 5, 5, 3, 1));
+    System.out.println(graciousSum(1, 3, 5, 5, 3, 1));
 
-        System.out.println(sum());
-        System.out.println(graciousSum(1));
+    System.out.println(sum());
+    System.out.println(graciousSum(1));
+  }
+
+  static int sum(int... args) {
+    // 가변인수는 들어온 인수 개수와 같은 길이의 배열을 만들고 거따가 저장한다
+    System.out.println("args = " + Arrays.toString(args));
+
+    int sum = 0;
+    for (int arg : args) {
+      sum += arg;
     }
+    return sum;
+  }
 
-    static int sum(int... args) {
-        // 가변인수는 들어온 인수 개수와 같은 길이의 배열을 만들고 거따가 저장한다
-        System.out.println("args = " + Arrays.toString(args));
-
-        int sum = 0;
-        for (int arg : args) {
-            sum += arg;
-        }
-        return sum;
+  static int graciousSum(int firstArg, int... args) {
+    int sum = firstArg;
+    for (int arg : args) {
+      sum += arg;
     }
-
-    static int graciousSum(int firstArg, int... args) {
-        int sum = firstArg;
-        for (int arg : args) {
-            sum += arg;
-        }
-        return sum;
-    }
+    return sum;
+  }
 }
 
 /*

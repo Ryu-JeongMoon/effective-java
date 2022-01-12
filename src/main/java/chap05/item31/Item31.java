@@ -7,26 +7,26 @@ import java.util.List;
  */
 public class Item31 {
 
-    public static void main(String[] args) {
+  public static void main(String[] args) {
 
-    }
+  }
 
-    // 뭐가 더 나을까요~?
-    // 2가 낫습니다
-    // 비교를 위해 신경 써야 할 타입 매개변수가 없기 때문
-    // 1. public static <E> void swap(List<E>list, int i, int j);
-    // 2. public static void swap(List<?> list, int i, int j);
+  // 뭐가 더 나을까요~?
+  // 2가 낫습니다
+  // 비교를 위해 신경 써야 할 타입 매개변수가 없기 때문
+  // 1. public static <E> void swap(List<E>list, int i, int j);
+  // 2. public static void swap(List<?> list, int i, int j);
 
-    public static void swap(List<?> list, int i, int j) {
-        swapHelper(list, i, j);
-    }
+  public static void swap(List<?> list, int i, int j) {
+    swapHelper(list, i, j);
+  }
 
-    // List<?> 로 아래 로직 수행하면 타입 에러 발생함
-    // List<?> 에는 null 만 넣을 수 있기 때문, 따라서 구현 시에는 정확한 타입을 알아야 한다
-    // private 메서드를 이용해 타입을 정확히 받아서 처리
-    private static <E> void swapHelper(List<E> list, int i, int j) {
-        list.set(i, list.set(j, list.get(i)));
-    }
+  // List<?> 로 아래 로직 수행하면 타입 에러 발생함
+  // List<?> 에는 null 만 넣을 수 있기 때문, 따라서 구현 시에는 정확한 타입을 알아야 한다
+  // private 메서드를 이용해 타입을 정확히 받아서 처리
+  private static <E> void swapHelper(List<E> list, int i, int j) {
+    list.set(i, list.set(j, list.get(i)));
+  }
 }
 
 /*

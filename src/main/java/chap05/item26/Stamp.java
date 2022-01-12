@@ -5,9 +5,9 @@ import lombok.ToString;
 @ToString
 public class Stamp {
 
-    private String stamp;
+  private final String stamp;
 
-    public Stamp() {
-        this.stamp = "yahoo~~";
-    }
+  public Stamp() {
+    this.stamp = "yahoo~~";
+  }
 }

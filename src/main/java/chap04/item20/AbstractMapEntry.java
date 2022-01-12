@@ -5,32 +5,32 @@ import java.util.Objects;
 
 public abstract class AbstractMapEntry<K, V> implements Map.Entry<K, V> {
 
-    // 구현을 강제하도록 예외 집어던짐
-    @Override
-    public V setValue(V value) {
-        throw new UnsupportedOperationException();
-    }
+  // 구현을 강제하도록 예외 집어던짐
+  @Override
+  public V setValue(V value) {
+    throw new UnsupportedOperationException();
+  }
 
-    @Override
-    public boolean equals(Object o) {
-        if (o == this) {
-            return true;
-        }
-        if (!(o instanceof Map.Entry<?, ?> e)) {
-            return false;
-        }
-        return Objects.equals(e.getKey(), getKey()) && Objects.equals(e.getValue(), getValue());
+  @Override
+  public boolean equals(Object o) {
+    if (o == this) {
+      return true;
     }
+    if (!(o instanceof Map.Entry<?, ?> e)) {
+      return false;
+    }
+    return Objects.equals(e.getKey(), getKey()) && Objects.equals(e.getValue(), getValue());
+  }
 
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(getKey()) ^ Objects.hashCode(getValue());
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hashCode(getKey()) ^ Objects.hashCode(getValue());
+  }
 
-    @Override
-    public String toString() {
-        return getKey() + "=" + getValue();
-    }
+  @Override
+  public String toString() {
+    return getKey() + "=" + getValue();
+  }
 }
 
 /*

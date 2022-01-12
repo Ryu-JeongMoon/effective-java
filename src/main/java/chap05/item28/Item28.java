@@ -5,23 +5,23 @@ package chap05.item28;
  */
 public class Item28 {
 
-    public static void main(String[] args) {
+  public static void main(String[] args) {
 
-        // 컴파일 에러로 안 잡힘!!, intellij 에서 인텔리센스로 Mismatched read and write of array 로 알려주긴 함
-        // Object[] o1 = new Long[1];
-        // o1[0] = "panda";
+    // 컴파일 에러로 안 잡힘!!, intellij 에서 인텔리센스로 Mismatched read and write of array 로 알려주긴 함
+    // Object[] o1 = new Long[1];
+    // o1[0] = "panda";
 
-        // 얘는 컴파일 타임에 잡아준다
-        // List<Object> o2 = new List<Long>();
-        // o2.add("bear");
+    // 얘는 컴파일 타임에 잡아준다
+    // List<Object> o2 = new List<Long>();
+    // o2.add("bear");
 
-        // 컴파일되지 않음
-        // List<String>[] stringLists = new List<String>[1];
-        // List<Integer> intList = List.of(42);
-        // Object[] objects = stringLists;
-        // objects[0] = intList;
-        // String s = stringLists[0].get(0);
-    }
+    // 컴파일되지 않음
+    // List<String>[] stringLists = new List<String>[1];
+    // List<Integer> intList = List.of(42);
+    // Object[] objects = stringLists;
+    // objects[0] = intList;
+    // String s = stringLists[0].get(0);
+  }
 }
 
 /*

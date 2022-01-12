@@ -9,19 +9,19 @@ import java.util.List;
  */
 public class Item57 {
 
-    public static void main(String[] args) {
-        List<String> strings = new ArrayList<>(List.of("y", "a", "h", "o"));
+  public static void main(String[] args) {
+    List<String> strings = new ArrayList<>(List.of("y", "a", "h", "o"));
 
-        // intellisense 바꾸라고 알려준다
-        Iterator<String> i = strings.iterator();
-        while (i.hasNext()) {
-            System.out.println(i.next());
-        }
-
-        for (String string : strings) {
-            System.out.println(string);
-        }
+    // intellisense 바꾸라고 알려준다
+    Iterator<String> i = strings.iterator();
+    while (i.hasNext()) {
+      System.out.println(i.next());
     }
+
+    for (String string : strings) {
+      System.out.println(string);
+    }
+  }
 }
 
  /*

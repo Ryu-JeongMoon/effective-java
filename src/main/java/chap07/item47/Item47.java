@@ -10,37 +10,37 @@ import java.util.stream.Stream;
  */
 public class Item47 {
 
-    public static void main(String[] args) {
+  public static void main(String[] args) {
 //        java: method reference not expected here
 //        for (ProcessHandle ph : ProcessHandle.allProcesses()::iterator) {
 //            System.out.println("yaho");
 //        }
 
 //        사용할 순 있지만 (Iterable<ProcessHandle>) 추잡하다
-        for (ProcessHandle ph : (Iterable<ProcessHandle>) ProcessHandle.allProcesses()::iterator) {
-            System.out.println("ph = " + ph);
-        }
+    for (ProcessHandle ph : (Iterable<ProcessHandle>) ProcessHandle.allProcesses()::iterator) {
+      System.out.println("ph = " + ph);
+    }
 
 //        Adapter 를 사용하자
-        for (ProcessHandle processHandle : iterableOf(ProcessHandle.allProcesses())) {
-            System.out.println("processHandle = " + processHandle);
-        }
-
-        Set<String> stringSet = new HashSet<>();
-        stringSet.add("yaho1");
-        stringSet.add("yaho2");
-        stringSet.add("yaho3");
-        stringSet.add("yaho4");
-
-        Collection<Set<String>> sets = PowerSet.of(stringSet);
-        for (Set<String> set : sets) {
-            System.out.println("set = " + set);
-        }
+    for (ProcessHandle processHandle : iterableOf(ProcessHandle.allProcesses())) {
+      System.out.println("processHandle = " + processHandle);
     }
 
-    private static <E> Iterable<E> iterableOf(Stream<E>stream) {
-        return stream::iterator;
+    Set<String> stringSet = new HashSet<>();
+    stringSet.add("yaho1");
+    stringSet.add("yaho2");
+    stringSet.add("yaho3");
+    stringSet.add("yaho4");
+
+    Collection<Set<String>> sets = PowerSet.of(stringSet);
+    for (Set<String> set : sets) {
+      System.out.println("set = " + set);
     }
+  }
+
+  private static <E> Iterable<E> iterableOf(Stream<E> stream) {
+    return stream::iterator;
+  }
 }
 
 /*

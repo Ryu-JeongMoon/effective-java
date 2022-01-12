@@ -10,41 +10,40 @@ import java.util.List;
  */
 public class Item42 {
 
-    public static void main(String[] args) {
-        // Collections.sort 에서 mutable object 를 받아야 하는데 List.of 로 생성하면
-        // immutable object 생성되므로 아래 방식으로 List<String> 생성 시 UnsupportedOperationException 발생
-        // List<String> words = List.of("google", "yahoo", "naver");
+  public static void main(String[] args) {
+    // Collections.sort 에서 mutable object 를 받아야 하는데 List.of 로 생성하면
+    // immutable object 생성되므로 아래 방식으로 List<String> 생성 시 UnsupportedOperationException 발생
+    // List<String> words = List.of("google", "yahoo", "naver");
 
-        // ArrayList 로 감싸는 방식으로 생성하면 오께이
-        List<String> words = new ArrayList<>(List.of("google", "yahoo", "naver"));
+    // ArrayList 로 감싸는 방식으로 생성하면 오께이
+    List<String> words = new ArrayList<>(List.of("google", "yahoo", "naver"));
 
-        // JDK 1.8 이전 방식
-        Collections.sort(words, new Comparator<String>() {
-            @Override
-            public int compare(String o1, String o2) {
-                return Integer.compare(o1.length(), o2.length());
-            }
-        });
+    // JDK 1.8 이전 방식
+    Collections.sort(words, new Comparator<String>() {
+      @Override
+      public int compare(String o1, String o2) {
+        return Integer.compare(o1.length(), o2.length());
+      }
+    });
 
-        // 1차 개선
-        Collections.sort(words, (o1, o2) -> Integer.compare(o1.length(), o2.length()));
+    // 1차 개선
+    Collections.sort(words, (o1, o2) -> Integer.compare(o1.length(), o2.length()));
 
-        // 2차 개선
-        Collections.sort(words, Comparator.comparingInt(String::length));
+    // 2차 개선
+    Collections.sort(words, Comparator.comparingInt(String::length));
 
-        // 3차 개선
-        words.sort(Comparator.comparingInt(String::length));
+    // 3차 개선
+    words.sort(Comparator.comparingInt(String::length));
 
-
-        for (String word : words) {
-            System.out.println("word = " + word);
-        }
-
-        System.out.println(AdvancedOperation.PLUS.apply(5, 3));
-        System.out.println(AdvancedOperation.MINUS.apply(5, 3));
-        System.out.println(AdvancedOperation.TIMES.apply(5, 3));
-        System.out.println(AdvancedOperation.DIVIDE.apply(5, 3));
+    for (String word : words) {
+      System.out.println("word = " + word);
     }
+
+    System.out.println(AdvancedOperation.PLUS.apply(5, 3));
+    System.out.println(AdvancedOperation.MINUS.apply(5, 3));
+    System.out.println(AdvancedOperation.TIMES.apply(5, 3));
+    System.out.println(AdvancedOperation.DIVIDE.apply(5, 3));
+  }
 }
 
 /*

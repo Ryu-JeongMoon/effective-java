@@ -2,17 +2,17 @@ package chap02.item03;
 
 public class Singleton2 {
 
-    private Singleton2() {
-    }
+  private Singleton2() {
+  }
 
-    public static Singleton2 getInstance() {
-        return LazyHolder.INSTANCE;
-    }
+  public static Singleton2 getInstance() {
+    return LazyHolder.INSTANCE;
+  }
 
-    private static class LazyHolder {
+  private static class LazyHolder {
 
-        private static final Singleton2 INSTANCE = new Singleton2();
-    }
+    private static final Singleton2 INSTANCE = new Singleton2();
+  }
 }
 
 /*

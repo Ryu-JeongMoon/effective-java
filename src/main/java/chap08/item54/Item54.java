@@ -7,10 +7,10 @@ import java.util.List;
  */
 public class Item54 {
 
-    public static void main(String[] args) {
-        Cheese cheese = new Cheese(List.of(new Cheese(null)));
-        System.out.println(cheese.cheeseInStock());
-    }
+  public static void main(String[] args) {
+    Cheese cheese = new Cheese(List.of(new Cheese(null)));
+    System.out.println(cheese.cheeseInStock());
+  }
 }
 
 /*

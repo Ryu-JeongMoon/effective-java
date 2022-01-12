@@ -10,37 +10,37 @@ import java.util.Set;
  */
 public class Item65 {
 
-    public static void main(String[] args) throws ClassNotFoundException {
-        Class<? extends Set<String>> cl = null;
-        try {
-            cl = (Class<? extends Set<String>>) Class.forName("java.util.TreeSet");
-        } catch (ClassNotFoundException e) {
-            System.out.println("Fatal Error");
-        }
-
-        Constructor<? extends Set<String>> cons = null;
-        try {
-            assert cl != null;
-            cons = cl.getDeclaredConstructor();
-        } catch (NoSuchMethodException e) {
-            System.out.println("No Constructor Error");
-        }
-
-        Set<String> s = null;
-        try {
-            s = cons.newInstance();
-        } catch (InvocationTargetException e) {
-            System.out.println("Cannot access constructor");
-        } catch (InstantiationException e) {
-            System.out.println("Cannot instantiate instance");
-        } catch (IllegalAccessException e) {
-            System.out.println("Error");
-        }
-
-        assert s != null;
-        s.addAll(List.of("TreeSet", "HashSet", "NormalSet", "YahooSet").subList(1, 4));
-        System.out.println("s = " + s);
+  public static void main(String[] args) throws ClassNotFoundException {
+    Class<? extends Set<String>> cl = null;
+    try {
+      cl = (Class<? extends Set<String>>) Class.forName("java.util.TreeSet");
+    } catch (ClassNotFoundException e) {
+      System.out.println("Fatal Error");
     }
+
+    Constructor<? extends Set<String>> cons = null;
+    try {
+      assert cl != null;
+      cons = cl.getDeclaredConstructor();
+    } catch (NoSuchMethodException e) {
+      System.out.println("No Constructor Error");
+    }
+
+    Set<String> s = null;
+    try {
+      s = cons.newInstance();
+    } catch (InvocationTargetException e) {
+      System.out.println("Cannot access constructor");
+    } catch (InstantiationException e) {
+      System.out.println("Cannot instantiate instance");
+    } catch (IllegalAccessException e) {
+      System.out.println("Error");
+    }
+
+    assert s != null;
+    s.addAll(List.of("TreeSet", "HashSet", "NormalSet", "YahooSet").subList(1, 4));
+    System.out.println("s = " + s);
+  }
 }
 
 /*

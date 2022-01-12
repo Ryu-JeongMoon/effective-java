@@ -5,11 +5,11 @@ package chap04.item22;
  */
 public class Item22 {
 
-    public static void main(String[] args) {
-        System.out.println(PhysicalConstants.AVOGADROS_NUMBER);
-        System.out.println(PhysicalConstants.BOLTZMANN_CONST);
-        System.out.println(PhysicalConstants.ELECTRON_MASS);
-    }
+  public static void main(String[] args) {
+    System.out.println(PhysicalConstants.AVOGADROS_NUMBER);
+    System.out.println(PhysicalConstants.BOLTZMANN_CONST);
+    System.out.println(PhysicalConstants.ELECTRON_MASS);
+  }
 }
 
 /*

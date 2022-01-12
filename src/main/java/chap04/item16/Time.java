@@ -2,28 +2,28 @@ package chap04.item16;
 
 public record Time(int hour, int minute) {
 
-    private static final int HOURS_PER_DAY = 24;
-    private static final int MINUTES_PER_HOUR = 60;
+  private static final int HOURS_PER_DAY = 24;
+  private static final int MINUTES_PER_HOUR = 60;
 
-    public Time {
-        if (hour < 0 || hour >= HOURS_PER_DAY) {
-            throw new IllegalArgumentException("hour: " + hour);
-        }
-
-        if (minute < 0 || minute >= MINUTES_PER_HOUR) {
-            throw new IllegalArgumentException("minute: " + minute);
-        }
+  public Time {
+    if (hour < 0 || hour >= HOURS_PER_DAY) {
+      throw new IllegalArgumentException("hour: " + hour);
     }
 
-    @Override
-    public int hour() {
-        return hour;
+    if (minute < 0 || minute >= MINUTES_PER_HOUR) {
+      throw new IllegalArgumentException("minute: " + minute);
     }
+  }
 
-    @Override
-    public int minute() {
-        return minute;
-    }
+  @Override
+  public int hour() {
+    return hour;
+  }
+
+  @Override
+  public int minute() {
+    return minute;
+  }
 }
 
 /*

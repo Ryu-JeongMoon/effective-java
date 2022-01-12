@@ -8,14 +8,14 @@ import lombok.ToString;
 @ToString
 public final class InstantPeriod {
 
-    private final Instant start;
-    private final Instant end;
+  private final Instant start;
+  private final Instant end;
 
-    public InstantPeriod(Instant start, Instant end) {
-        if (start.isAfter(end)) {
-            throw new IllegalArgumentException(start + " should be earlier than " + end);
-        }
-        this.start = start;
-        this.end = end;
+  public InstantPeriod(Instant start, Instant end) {
+    if (start.isAfter(end)) {
+      throw new IllegalArgumentException(start + " should be earlier than " + end);
     }
+    this.start = start;
+    this.end = end;
+  }
 }

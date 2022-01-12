@@ -5,19 +5,19 @@ package chap04.item23;
  */
 public class Item23 {
 
-    public static void main(String[] args) {
-        OldFigure oldFigure = new OldFigure(2.3);
-        System.out.println(oldFigure.area());
+  public static void main(String[] args) {
+    OldFigure oldFigure = new OldFigure(2.3);
+    System.out.println(oldFigure.area());
 
-        CircleFigure circleFigure = new CircleFigure(5.5);
-        System.out.println(circleFigure.radius());
-        System.out.println(circleFigure.area());
+    CircleFigure circleFigure = new CircleFigure(5.5);
+    System.out.println(circleFigure.radius());
+    System.out.println(circleFigure.area());
 
-        RectangleFigure rectangleFigure = new RectangleFigure(3.2, 2.3);
-        System.out.println(rectangleFigure.length());
-        System.out.println(rectangleFigure.width());
-        System.out.println(rectangleFigure.area());
-    }
+    RectangleFigure rectangleFigure = new RectangleFigure(3.2, 2.3);
+    System.out.println(rectangleFigure.length());
+    System.out.println(rectangleFigure.width());
+    System.out.println(rectangleFigure.area());
+  }
 }
 
 /*

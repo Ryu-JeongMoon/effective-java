@@ -9,15 +9,15 @@ import java.util.Set;
  */
 public class Item64 {
 
-    public static void main(String[] args) {
-        Set<String> stringSet = new LinkedHashSet<>();
-        stringSet.add("yaho");
+  public static void main(String[] args) {
+    Set<String> stringSet = new LinkedHashSet<>();
+    stringSet.add("yaho");
 
-        stringSet = new HashSet<>();
-        stringSet.add("ohay");
+    stringSet = new HashSet<>();
+    stringSet.add("ohay");
 
-        System.out.println("stringSet = " + stringSet);
-    }
+    System.out.println("stringSet = " + stringSet);
+  }
 }
 
 /*

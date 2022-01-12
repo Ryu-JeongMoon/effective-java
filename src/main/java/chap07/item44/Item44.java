@@ -9,18 +9,18 @@ import java.util.function.LongToIntFunction;
  */
 public class Item44 {
 
-    public static void main(String[] args) {
-        LongFunction<int[]> longFunction = (l1) -> {
-            int[] ints = new int[1];
-            long l3 = l1 + 55;
-            ints[0] = (int) l3;
-            return ints;
-        };
-        System.out.println(Arrays.toString(longFunction.apply(55L)));
+  public static void main(String[] args) {
+    LongFunction<int[]> longFunction = (l1) -> {
+      int[] ints = new int[1];
+      long l3 = l1 + 55;
+      ints[0] = (int) l3;
+      return ints;
+    };
+    System.out.println(Arrays.toString(longFunction.apply(55L)));
 
-        LongToIntFunction longToIntFunction = l1 -> (int)(l1 + 1);
-        System.out.println(longToIntFunction.applyAsInt(1L));
-    }
+    LongToIntFunction longToIntFunction = l1 -> (int) (l1 + 1);
+    System.out.println(longToIntFunction.applyAsInt(1L));
+  }
 }
 
 /*

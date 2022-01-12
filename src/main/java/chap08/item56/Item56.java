@@ -5,9 +5,9 @@ package chap08.item56;
  */
 public class Item56 {
 
-    public static void main(String[] args) {
+  public static void main(String[] args) {
 
-    }
+  }
 }
 
  /*

@@ -7,14 +7,14 @@ import chap03.item10.PhoneNumber;
  */
 public class Item13 {
 
-    public static void main(String[] args) {
-        PhoneNumber p1 = new PhoneNumber(123, 456, 9999);
-        PhoneNumber p2 = p1.clone();
+  public static void main(String[] args) {
+    PhoneNumber p1 = new PhoneNumber(123, 456, 9999);
+    PhoneNumber p2 = p1.clone();
 
-        System.out.println("(p1==p2) = " + (p1 == p2));
-        System.out.println("p1 = " + p1);
-        System.out.println("p2 = " + p2);
-    }
+    System.out.println("(p1==p2) = " + (p1 == p2));
+    System.out.println("p1 = " + p1);
+    System.out.println("p2 = " + p2);
+  }
 }
 
 /*

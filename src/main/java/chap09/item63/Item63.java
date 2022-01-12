@@ -5,35 +5,35 @@ package chap09.item63;
  */
 public class Item63 {
 
-    public static void main(String[] args) {
-        long start = System.nanoTime();
-        statement();
-        long end = System.nanoTime();
-        // 12430500
-        System.out.println("(end - start) = " + (end - start));
+  public static void main(String[] args) {
+    long start = System.nanoTime();
+    statement();
+    long end = System.nanoTime();
+    // 12430500
+    System.out.println("(end - start) = " + (end - start));
 
-        start = System.nanoTime();
-        statementOptimization();
-        end = System.nanoTime();
-        // 65691
-        System.out.println("(end - start) = " + (end - start));
-    }
+    start = System.nanoTime();
+    statementOptimization();
+    end = System.nanoTime();
+    // 65691
+    System.out.println("(end - start) = " + (end - start));
+  }
 
-    private static String statement() {
-        String result = "";
-        for (int i = 0; i < 10; i++) {
-            result += i;
-        }
-        return result;
+  private static String statement() {
+    String result = "";
+    for (int i = 0; i < 10; i++) {
+      result += i;
     }
+    return result;
+  }
 
-    private static String statementOptimization() {
-        StringBuilder result = new StringBuilder();
-        for (int i = 0; i < 10; i++) {
-            result.append(i);
-        }
-        return result.toString();
+  private static String statementOptimization() {
+    StringBuilder result = new StringBuilder();
+    for (int i = 0; i < 10; i++) {
+      result.append(i);
     }
+    return result.toString();
+  }
 }
 
 /*

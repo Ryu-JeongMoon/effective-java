@@ -7,22 +7,22 @@ import java.math.BigInteger;
  */
 public class Item49 {
 
-    public static void main(String[] args) {
-        System.out.println(mod(BigInteger.TWO));
-    }
+  public static void main(String[] args) {
+    System.out.println(mod(BigInteger.TWO));
+  }
 
-    public static BigInteger mod(BigInteger m) {
-        if (m.signum() <= 0) {
-            throw new ArithmeticException("m should be positive number");
-        }
-        return BigInteger.TEN.mod(m);
+  public static BigInteger mod(BigInteger m) {
+    if (m.signum() <= 0) {
+      throw new ArithmeticException("m should be positive number");
     }
+    return BigInteger.TEN.mod(m);
+  }
 
-    private static void sort(long a[], int offset, int length) {
-        assert a != null;
-        assert offset >= 0 && offset < a.length;
-        assert length >= 0 && length <= a.length - offset;
-    }
+  private static void sort(long[] a, int offset, int length) {
+    assert a != null;
+    assert offset >= 0 && offset < a.length;
+    assert length >= 0 && length <= a.length - offset;
+  }
 }
 
 /*
