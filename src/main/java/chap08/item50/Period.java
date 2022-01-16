@@ -1,12 +1,13 @@
 package chap08.item50;
 
+import java.io.Serializable;
 import java.util.Date;
 import lombok.Getter;
 import lombok.ToString;
 
 @Getter
 @ToString
-public final class Period {
+public final class Period implements Serializable {
 
   private final Date start;
   private final Date end;
