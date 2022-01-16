@@ -29,6 +29,24 @@ public final class Period implements Serializable {
       throw new IllegalArgumentException(this.start + " should be earlier than " + this.end);
     }
   }
+
+  // 바깥 클래스의 인스턴스 대신 static inner class 의 인스턴스를 반환하게 한다
+  private Object writeReplace() {
+    return new SerializationProxy(this);
+  }
+
+  private static class SerializationProxy implements Serializable {
+
+    private static final long serialVersionUID = 2345678910293434L;
+
+    private final Date start;
+    private final Date end;
+
+    public SerializationProxy(Period p) {
+      this.start = p.start;
+      this.end = p.end;
+    }
+  }
 }
 
 /*
