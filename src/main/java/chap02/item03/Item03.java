@@ -10,6 +10,7 @@ public class Item03 {
     System.out.println((EnumElvis.INSTANCE == EnumElvis.INSTANCE));
 
     System.out.println((Elvis.INSTANCE == Elvis.INSTANCE));
+
     Elvis i1 = Elvis.getInstance();
     Elvis i2 = Elvis.getInstance();
 
@@ -25,6 +26,9 @@ public class Item03 {
     public static final Elvis INSTANCE = new Elvis();
 
     private Elvis() {
+      if (INSTANCE != null) {
+        throw new IllegalStateException("Cannot construct another instance");
+      }
     }
 
     public static Elvis getInstance() {
@@ -51,10 +55,11 @@ Enum 방식은 아주 효율적이나 Android 개발할 때, Context 라는 의�
 
 최대 궁금증은 스프링의 관리를 받아서 @Bean 으로 싱글턴 구현하는 게 제일 간편하지 않은감? 하는 생각이다
 Bean 으로 관리하게 된다면 사용하는 측도 일반 class 여서는 안 되고 Bean 주입 받아야 되니께 스프링의 관리를 받아야 한다
-쓸모 없는 의존성이 생기는 것 일 수 있다
-
 어차피 스프링에 의존하기로 한거 빈으로 관리 받아서 써도 되긴 한데
 애플리케이션 로드 시점에 빈이 생성 되버리니까 사용하기 전에 쓰잘데기 없이 생성된 것이다
 
-그래서 결론은 웬만하면 LazyHolder 쓰자
+웬만하면 LazyHolder 쓰자
+단 이 방법에서 직렬화를 한다고 하면 모든 인스턴스 필드를 transient 선언하고 readResolve 메서드 제공해야 한다
+이러한 과정이 번거롭다면 enum 방식으로 만들면 된다
+간결하고 직렬화 상황 / 리플렉션 공격에도 다른 인스턴스가 생성되는 것을 막아준다
  */

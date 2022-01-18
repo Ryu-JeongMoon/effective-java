@@ -3,9 +3,6 @@ package chap02.item04;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
-/**
- * 인스턴스화를 막으려면 private 생성자를 사용하라
- */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class Utility {
 
