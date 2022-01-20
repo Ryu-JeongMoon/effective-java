@@ -34,6 +34,10 @@ public class Item06 {
 }
 
 /*
+변수에 new String()을 통해 String Object 생성하는 방식은 그 값이 무엇이던 간에 JVM Heap Memory 에 새로운 객체를 생성한다
+반면 String Literal 을 사용해 할당하는 경우, interning 이라는 process 를 거쳐 String Constant Pool 에 집어넣는다
+이는 값으로 인식되어 추후 사용될 때 반환된다, JVM 메모리를 효율적으로 사용하기 위해 new String() 은 사용하지 않도록 한다
+
 - String.matches() 는 문자열 형태를 확인하는 메서드인데 성능이 중요한 상황에서 반복적으로 사용하기엔 적합하지 않다?!
 
 내부에서 Pattern 인스턴스를 만드는데 정규표현식에 해당하는 유한 상태 머신(finite state machine)을 만들기 땜시 인스턴스 생성 비용이 비싸다고 한다
