@@ -2,9 +2,6 @@ package chap02.item08;
 
 import java.lang.ref.Cleaner;
 
-/**
- * finalizer, cleaner 사용을 피하라
- */
 public class Room implements AutoCloseable {
 
   private static final Cleaner cleaner = Cleaner.create();
