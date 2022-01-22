@@ -85,6 +85,7 @@ public final class PhoneNumber implements Cloneable, Comparable<PhoneNumber> {
     return COMPARATOR.compare(this, o);
   }
 }
+
 /*
 equals 오버라이드할 때엔 hashCode 도 오버라이드 해줘야 한다
 equals 오버라이드할 때 입력값으로 Object 외에 커스텀 객체를 넣지마라

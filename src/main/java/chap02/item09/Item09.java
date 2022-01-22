@@ -44,4 +44,20 @@ public class Item09 {
       in.close();
     }
   }
+
+  // 두개의 자원을 하나의 try-finally 로 묶으면 더 간편하지 않나?
+  static void simpleCopy(String src, String dst) throws IOException {
+    InputStream in = new FileInputStream(src);
+    OutputStream out = new FileOutputStream(dst);
+    try {
+      byte[] buf = new byte[BUFFER_SIZE];
+      int n;
+      while ((n = in.read(buf)) >= 0) {
+        out.write(buf, 0, n);
+      }
+    } finally {
+      in.close();
+      out.close();
+    }
+  }
 }
