@@ -1,6 +1,6 @@
 package chap03.item13;
 
-import chap03.item10.PhoneNumber;
+import chap03.item11.PhoneNumber;
 
 /**
  * clone 재정의는 주의해서 진행하라
