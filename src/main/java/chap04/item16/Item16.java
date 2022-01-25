@@ -9,6 +9,9 @@ public class Item16 {
     Time time = new Time(5, 35);
     System.out.println("time = " + time.hour());
     System.out.println("time = " + time.minute());
+
+    Time wrongTime = new Time(-1, 3);
+    System.out.println("wrongTime = " + wrongTime);
   }
 }
 
