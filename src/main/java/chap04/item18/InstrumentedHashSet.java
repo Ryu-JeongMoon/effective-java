@@ -32,6 +32,6 @@ public class InstrumentedHashSet<E> extends HashSet<E> {
 }
 
 /*
-생성된 후 몇개의 원소가 추가되었는지를 알 수 있도록 addCount 추가하여
-HashSet 상속 받아 만든 InstrumentedHashSet
+생성된 후 몇개의 원소가 추가되었는지를 알 수 있도록 addCount 추가하여 HashSet 상속 받아 만든 InstrumentedHashSet
+상속해서 사용한다면 상위 클래스의 구현에 묶이게 된다
  */
