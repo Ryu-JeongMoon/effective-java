@@ -31,3 +31,9 @@ class OldFigure {
 
   enum Shape {RECTANGLE, CIRCLE}
 }
+
+/*
+관심사를 분리하지 못 했다
+사용하지 않을 필드에 대해서도 생성자에서 초기화를 해주어야 한다
+이렇게 작성했을 때 장점은 기껏해야 Figure.XX 로 묶을 수 있다는 것 밖에 없다
+ */
