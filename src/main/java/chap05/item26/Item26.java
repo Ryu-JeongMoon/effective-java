@@ -9,6 +9,7 @@ import java.util.List;
  */
 public class Item26 {
 
+  // stamps 인스턴스만 취급하려는 의도지만 제네릭을 사용하지 않기 때문에 강제되지 않는다
   private static final Collection stamps = new ArrayList();
   private static final List<Coin> coins = new ArrayList<>();
 
@@ -16,8 +17,8 @@ public class Item26 {
     stamps.add(new Stamp());
     stamps.add(new Coin());
 
-    for (Object arg : stamps) {
-      System.out.println("arg = " + arg);
+    for (Object stamp : stamps) {
+      System.out.println("stamp = " + stamp);
     }
 
     // compile error
@@ -26,7 +27,7 @@ public class Item26 {
     coins.add(new Coin());
     coins.add(new Coin());
 
-    // Generics 덕분에 형변환도 필요없다, 따봉제네릭스
+    // Generics 덕분에 형변환도 필요없다, 따봉 제네릭스
     for (Coin coin : coins) {
       System.out.println("coin = " + coin);
     }
