@@ -37,4 +37,8 @@ Generics 사라지고 for 문이 while, iterator 조합으로 바뀌넹
 @SuppressWarnings("unchecked") 를 사용할 수 있다고는 하는데 굳이굳이?!
 진짜 중요한 에러가 비검사 경고에 의해 가려질 수 있으므로 사용한다고 함
 자바 라이브러리에서의 문제가 아니라면 직접 제거해주자
+
+비검사 경고는 런타임 시 ClassCastException 터질 수 있음을 알려준다
+@SuppressWarnings 를 남발하여 스스로 타입 안전성을 개박살 내지말자
+단 타입 안전성을 보장할 수 있고 @SuppressWarnings 에 의해 더 중요한 에러를 나타낼 수 있을 때만 사용하자
  */
