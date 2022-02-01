@@ -62,4 +62,7 @@ unionRawType 주석 처리하면 에러 발생 X
 public static <E> Set<E> union(Set<? extends E> s1, Set<? extends E> s2) {
 요놈에서의 타입 추론은 자바 8부터 잘 작동한다
 자바 7 이전에서는 타입 추론 능력이 충분하지 않아 추론 못 함, 바보자식
+
+타입 매개변수 목록은 메서드의 접근 제한자와 반환 타입 사이에 온다
+public <E> Set<E> 일 때 <E> 가 타입 매개변수 목록
  */
