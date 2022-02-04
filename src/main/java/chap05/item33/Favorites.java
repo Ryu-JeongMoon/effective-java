@@ -18,3 +18,8 @@ public class Favorites {
     return type.cast(favorites.get(type));
   }
 }
+
+/*
+어떤 타입이 들어올지 모르니까 favorites 맵은 비한정적 와일드카드 사용
+넣고 뺄 때 명확한 타입을 주어 작업 처리
+ */
