@@ -3,6 +3,10 @@ package chap06.item39;
 public class Sample {
 
   @CustomTest
+  public static void m4() {
+  }
+
+  @CustomTest
   public void m1() {
   }
 
