@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+import lombok.ToString;
 
 /**
  * 전통적인 for 문보다는 for-each 문을 사용하라
@@ -32,15 +33,16 @@ public class Item58 {
     }
   }
 
-  enum Suit {
+  public enum Suit {
     CLUB, DIAMOND, HEART, SPADE
   }
 
-  enum Rank {
+  public enum Rank {
     ACE, DEUCE, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING
   }
 
-  static class Card {
+  @ToString
+  public static class Card {
 
     private final Suit suit;
     private final Rank rank;
