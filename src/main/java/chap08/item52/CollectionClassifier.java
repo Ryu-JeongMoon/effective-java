@@ -17,4 +17,9 @@ public class CollectionClassifier {
   public static String classify(Collection<?> s) {
     return "Collection";
   }
+
+  public static String classifyByType(Collection<?> s) {
+    return s instanceof Set ? "Set" :
+      s instanceof List ? "List" : "Collection";
+  }
 }
