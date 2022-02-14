@@ -1,7 +1,5 @@
 package chap08.item53;
 
-import java.util.Arrays;
-
 /**
  * 가변인수는 신중히 사용하라
  */
@@ -15,9 +13,12 @@ public class Item53 {
     System.out.println(graciousSum(1));
   }
 
+  // 가변인수는 들어온 인수 개수와 같은 길이의 배열을 만들고 거따가 저장한다
   static int sum(int... args) {
-    // 가변인수는 들어온 인수 개수와 같은 길이의 배열을 만들고 거따가 저장한다
-    System.out.println("args = " + Arrays.toString(args));
+    // 인자에 아무것도 넘기지 않아도 컴파일 되는게 문제
+    if (args.length == 0) {
+      throw new IllegalArgumentException("YAHOO");
+    }
 
     int sum = 0;
     for (int arg : args) {

@@ -36,3 +36,9 @@ public record Cheese(List<Cheese> cheeseInStock) {
     return cheeseInStock.toArray(EMPTY_CHEESE_ARRAY);
   }
 }
+
+/*
+https://jike.in/?qa=873044/java-performance-benefits-of-a-static-empty-array-instance
+JMH 에서 score 는 throughput 의미함
+성능 측정 결과 static 상수 쓰는게 더 빠른데?!
+ */
