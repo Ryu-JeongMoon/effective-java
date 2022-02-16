@@ -54,13 +54,15 @@ public class Item58 {
   }
 }
 
- /*
- for 문을 쓰는 목적이 무엇인가
- for -> index 를 이용해 값을 늘려가면서 일정한 값까지만 한정해두고 값을 더한다던지, 뺀다던지 등 지지고 볶는 연산이 있을 수 있고
- for-each -> Collection 넣어서 그 안의 요소들로 쌈싸먹는 연산이 있을 수 있다
- 그럼 for-each 안 쓰고 for 쓴 놈들 대가리 깨야할까??, 놉 그건 아님
- 1. destructive filtering, 순회하면서 요소 삭제해야할 때 iterator.remove() 쓰거나 Collection.removeIf() 써야함
- 2. transforming, 순회하면서 값을 변경해야 할 때
- 3. parallel iteration, 여러 컬렉션을 병렬로 순회해야 할 때 ?!
- 병렬 반복이란 뭘까??
-  */
+/*
+for 문을 쓰는 목적이 무엇인가
+for -> index 를 이용해 값을 늘려가면서 일정한 값까지만 한정해두고 값을 더한다던지, 뺀다던지 등 지지고 볶는 연산이 있을 수 있고
+for-each -> Collection 넣어서 그 안의 요소들로 쌈싸먹는 연산이 있을 수 있다
+for 는 인덱스로 제어하기 땜시 값 변경을 할 수 있으나 for-each 는 요소로 제어하니 요소에 변경을 가할 수 없다
+
+그럼 for-each 안 쓰고 for 쓴 놈들 대가리 깨야할까??, 놉 그건 아님
+1. destructive filtering, 순회하면서 요소 삭제해야할 때 iterator.remove() 쓰거나 Collection.removeIf() 써야함
+2. transforming, 순회하면서 값을 변경해야 할 때
+3. parallel iteration, 여러 컬렉션을 병렬로 순회해야 할 때 ?!
+병렬 반복이란 뭘까??
+*/
