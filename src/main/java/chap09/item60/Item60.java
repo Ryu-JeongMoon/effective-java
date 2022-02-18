@@ -14,6 +14,14 @@ public class Item60 {
     calculateRemains();
 
     calculateRemainsByInt();
+
+    long unsignedLong = Long.parseUnsignedLong("17916881237904312345");
+    System.out.println("unsignedLong = " + unsignedLong);
+
+    String unsignedLongString = Long.toUnsignedString(unsignedLong);
+    System.out.println("unsignedLongString = " + unsignedLongString);
+
+    System.out.println("(unsignedLong - Long.MAX_VALUE) = " + (unsignedLong - Long.MAX_VALUE));
   }
 
   static void calculateRemains() {
@@ -50,6 +58,11 @@ BigDecimal 은 느리고 사용법이 일반 +, - 연산과 달라 불편하다
 But 소수점 관리를 시스템에 맡겨버리고, 성능 저하에도 신경 쓰지 않는다면 사용하자
 
 int -> 21억 까지 사용 가능
-long -> 9223372036854775807 까지 사용 가능
+long -> 900경 까지 사용 가능
 그 외에는 BigDecimal 사용 해야함
+
+자바8 이상에서는 parseUnsignedLong 으로 long 범위 초과하는 수를 받을 수 있긴 하나
+출력하려 하면 오버플로우 나기 때문에 음수로 출력된다, toUnsignedString 사용하여 문자열로 바꿔 출력해야 한다
+매번 형태 바꿔줘야 하고 범위를 벗어난 계산 수행 시 오버플로우 나게 되니
+큰 수를 다뤄야 한다면 성능 저하가 오더라도 BigInteger 사용해 안전 코딩
  */

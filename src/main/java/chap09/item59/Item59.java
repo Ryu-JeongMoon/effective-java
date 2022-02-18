@@ -9,8 +9,9 @@ import java.util.concurrent.ThreadLocalRandom;
  */
 public class Item59 {
 
+  private static final Random random = new Random();
+
   public static void main(String[] args) {
-    Random random = new Random();
     random.nextInt(50);
 
     ThreadLocalRandom current = ThreadLocalRandom.current();
@@ -18,12 +19,35 @@ public class Item59 {
 
     SplittableRandom splittableRandom = new SplittableRandom();
     splittableRandom.nextInt(50);
+
+    printPseudoRandom();
+  }
+
+  // 무작위 난수를 생성했는데 중간 값보다 낮은 것이 2/3 이상 존재?!
+  private static void printPseudoRandom() {
+    int n = 2 * (Integer.MAX_VALUE / 3);
+    int theNumberLessThanIntermediateValue = 0;
+
+    for (int i = 0; i < 100_000; i++) {
+      if (random(n) < n / 2) {
+        theNumberLessThanIntermediateValue++;
+      }
+    }
+    System.out.println("theNumberLessThanIntermediateValue = " + theNumberLessThanIntermediateValue);
+  }
+
+  private static int random(int n) {
+    return Math.abs(random.nextInt()) % n;
   }
 }
 
 /*
-Random -> ThreadLocalRandom 으로 대체하면 성능 향상과 고품질의 난수 생성
-SplittableRandom -> Fork-Join pool / Parallel Stream 에서 사용한다면
+Random 은 구현 상의 문제로 중간 값보다 낮게 쏠리는 경향이 있다
+deprecated 로 사용 중지 권고가 내려왔지만 하위 호환성으로 아직까지 존재
+
+Random            -> ThreadLocalRandom 으로 대체하면 성능 향상과 고품질의 난수 생성
+SecureRandom      -> 암호학적으로 중요할 때 사용
+SplittableRandom  -> Fork-Join pool / Parallel Stream 에서 사용한다면
 
 low-level 의 코드를 알아두면 좋지만 목적이 무엇인지에 따라 효율이 달라진다
 평범한 웹 백엔드를 다룰 때 SplittableRandom 의 사용법 외에 사용 원리까지 빠삭하게 알아야 할 필요가 있을까?
