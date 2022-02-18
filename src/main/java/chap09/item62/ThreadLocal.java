@@ -33,7 +33,8 @@ abstract class Key {
   }
 
   // 문자열 기반의 API 의 문제점을 해결해준다
-  // 전역으로 공유될 필요가 없는 녀석이 공유되기 때문에 1. 중복될 수 있다는 점, 2. 보안이 취약하다는 점
+  // 전역으로 공유될 필요가 없는 녀석이 공유되기 때문에
+  // 1.중복될 수 있다는 점, 2.보안이 취약하다는 점
   abstract Key getKey();
 
   abstract void set(Key key, Object value);
