@@ -48,7 +48,10 @@ String 에서의 + 연산자는 가볍게 사용할 땐 상관 없지만
 - 반복문 내에서도 마찬가지로 한번 돌때마다 StringBuilder 생성됨
 
 따라서 한 줄로 작성했을 때만 최적화되고 나머지는 StringBuilder 생성되버린다
+한줄 정도야 성능에 문제 있어봤자 큰 차이가 안 난다
+문제는 for-loop 순회하면서 이어붙이는 경우인데 이 때는 jdk11 이상부터는 String 의 repeat 사용하고
+그 외에는 동기화 필요에 따라 StringBuffer, StringBuilder 골라서 사용하면 된다
 
 statement / statementOptimization
-위 실험에서는 약 189 배의 성능 차이
+위 실험에서는 약 150 ~ 450 배의 성능 차이
  */
