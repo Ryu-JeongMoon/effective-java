@@ -38,7 +38,7 @@ public class Item14 {
     // equals 에서는 false 반환, compareTo 에서는 0 반환?!
     // BigDecimal 의 equals, compareTo 가 일관적이지 않게 작성되어 있기 때문
     System.out.println("b1.equals(b2) = " + b1.equals(b2));
-    System.out.println("b1.equals(b2) = " + b1.compareTo(b2));
+    System.out.println("b1.compareTo(b2) = " + b1.compareTo(b2));
 
     CaseInsensitiveString yahoo = new CaseInsensitiveString("Yahoo");
     System.out.println("yahoo = " + yahoo);
@@ -60,7 +60,7 @@ A = B -> 0
 A < B -> 음의 정수
 
 반사성, 대칭성이란
-A, B 비교 시에 (A,B) 비교와 (B,A) 비교가 다른 값이 나온다?!
+A, B 비교 시에 (A,B) 비교와 -(B,A) 비교가 다른 값이 나온다?!
 그것은 말도 안 되는 것, 앞놈 뒷놈 순서 바꿔 비교해도 같은 값이 나오도록 하자
 예외도 마찬가지로 앞놈 뒷놈 바꿔도 같은 예외 터져야 한다
 
@@ -80,9 +80,14 @@ TreeSet 을 쓴다면 compareTo 로 비교하기 땜시 같은 값으로 처리�
 compareTo 는 타입을 신경쓰지 않아도 된다
 Comparable Interface 는 타입을 인수로 받기 땜시 컴파일 단계에서 compareTo 인수의 타입이 정해지기 때문
 타입이 다른 경우, ClassCastException 던지고 대부분이 그렇게 한다
+public class T implements Comparable<T> 로 구현하며 T 타입은 T 타입으로만 비교할 수 있음을 의미한다
+요렇게 해야 다른 타입과의 비교를 막을 수 있고 컴파일 에러로 잡아줄 수 있다
 
 순서를 고려해야 하는 값 클래스의 경우엔 Comparable 을 구현해서 Collection 과 어우러지도록 해야한당
 필드 값 비교시에 <, > 연산자 쓰지 말고 박싱 타입 기본 클래스의 정적 메서드를 이용해서 비교하자
 복잡한 연산의 경우 <, > 를 작성하면서 오류가 날수 있기 때문!
 내부적으로 <, >, = 연산을 내부로 감춰둔 compare 를 써서 오류를 줄이자
+
+비교해야하는 데이터가 무지막지한 경우
+정적 메서드 사용 시 인디렉션으로 인한 오버헤드는 없는가?
  */
