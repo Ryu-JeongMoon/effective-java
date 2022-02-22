@@ -6,20 +6,21 @@ package chap10.item69;
 public class Item69 {
 
   public static void main(String[] args) {
-    // 어설픈 최적화 코드
     int[] range = new int[]{1, 2, 3, 4, 5};
 
+    // 요상한 코드
     try {
+      for (int m : range)
+        System.out.println("m = " + m);
+
       int i = 0, sum = 0;
-      while (true) {
+      while (true)
         sum += range[i++];
-      }
     } catch (ArrayIndexOutOfBoundsException ignored) {
     }
 
-    for (int i : range) {
+    for (int i : range)
       System.out.println(i + " yaho");
-    }
   }
 }
 
@@ -31,6 +32,10 @@ JVM 이 배열에 접근할 때마다 bounds 를 넘는지 아닌지 검사한�
 
 예외를 예외 상황에서 쓰지 않았다는 점만으로도 다른 이의 혼란을 일으킬 수 있다
 try-catch 문 안에서는 JVM 이 수행하는 최적화에 한계가 생긴다
+
+설계 의도대로 사용하자
+요상한 방식으로 최적화를 이루어냈더라도 읽는 이를 배려해서 작성해야 한다
+다른 이가 저 코드를 보면 catch 절이 왜 들어갔는지 이해할 수 없다
 
 최적화할 부분이 있고 아닌 부분이 있다
 대부분의 웹 프로그램에서는 DB I/O 쪽에서 성능을 깎아먹는다
