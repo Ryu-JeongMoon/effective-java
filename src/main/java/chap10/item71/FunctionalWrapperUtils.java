@@ -28,4 +28,5 @@ public class FunctionalWrapperUtils {
 
 /*
 오우쉿 쩐당
+checked -> unchecked 로 바꿔 던져버리기
  */
