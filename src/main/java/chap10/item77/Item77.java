@@ -6,7 +6,12 @@ package chap10.item77;
 public class Item77 {
 
   public static void main(String[] args) {
-
+    // 미친 에러 처리
+    try {
+      throw new IllegalStateException("please handle this");
+    } catch (Exception e) {
+      // i don't care
+    }
   }
 }
 
