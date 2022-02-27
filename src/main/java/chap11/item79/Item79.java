@@ -16,8 +16,7 @@ public class Item79 {
     // set.addObserver((s, e) -> System.out.println("e = " + e));
 
     // ConcurrentModificationException 발생 ?!
-    /*
-    set.addObserver(new SetObserver<>() {
+    /*set.addObserver(new SetObserver<>() {
       @Override
       public void added(ObservableSet<Integer> s, Integer e) {
         System.out.println("element = " + e);
@@ -27,7 +26,8 @@ public class Item79 {
       }
     });*/
 
-    // 예외는 안 터지고 deadlock 걸림
+    // 메인 스레드가 수행하며 이미 락을 쥐고 있는 상황에서 백그라운드 스레드를 이용해 삭제하려고 할 때
+    // 락을 얻을 수 없고, 메인 스레드는 기다리고 있는 상황이므로 예외는 안 터지고 deadlock 걸림
     set.addObserver(new SetObserver<>() {
       @Override
       public void added(ObservableSet<Integer> s, Integer e) {
@@ -53,6 +53,7 @@ public class Item79 {
 
 /*
 리스트를 순회하는 도중에 리스트의 요소를 삭제하는 것은 허용되지 않는다!!
+아항, for 돌릴 때 요소를 수정 & 삭제하는 연산은 수행할 수 없기 때문이로구나
 오마이갓 넘 어렵당..
 
 람다 대신 익명 클래스를 사용하는 이유가 무엇인가
@@ -65,7 +66,7 @@ public class Item79 {
 이를 사용하는 쪽에서 제어하게 하는 것이 낫다
 동시성을 월등히 개선할 수 있을 때 내부 동기화를 사용하도록 하자
 
-내부에서 동기화하기로 결정했다면 아래 기법들을 사용해 동시성 지원을 높일 수 있다 (요놈들 찾아볼 것)
+내부에서 동기화하기로 결정했다면 아래 기법들을 사용해 동시성 지원을 높일 수 있다 (자바 병렬 프로그래밍 참고)
 - lock splitting
 - lock striping
 - nonblocking concurrency control

@@ -17,8 +17,9 @@ public class AdvancedStopThread {
   public static void main(String[] args) throws InterruptedException {
     Thread backgroundThread = new Thread(() -> {
       int i = 0;
-      while (!isStopRequested()) {
-//      while (!stopRequested) {
+
+//      while (!isStopRequested()) {
+      while (!stopRequested) {
         i++;
       }
       System.out.println("i = " + i);
@@ -47,4 +48,9 @@ requestStop 에는 안 걸어도 멈추던데?!
 
 volatile 키워드를 사용해 가장 최근에 기록된 값을 매번 읽어오게 한다
 오우 얘가 synchronized 보다 훨씬 빠르넹, 단 얘는 주의해서 사용해야 함, race condition 발생하기 때문
+
+isStopRequested() 얘로 하면 synchronized 걸려있기 때문에 i 값이 59354278 나오고
+그냥 필드로 읽어서 수행하면 -1788916477 나온다
+필드로 읽은 애가 개빨리 수행해서 오버플로우 나고 저 값이 나온 것이니 이런 코드 작성 시에는
+이미 volatile 로 선언된 애에다가 synchronized 먹이면 성능 저하 올 수 있음을 주의하자
  */
