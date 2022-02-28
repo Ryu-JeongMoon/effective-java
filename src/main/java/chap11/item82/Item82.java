@@ -35,4 +35,6 @@ not thread-safe
 thread-hostile
 - 얘네는 외부 동기화로 감싸도 안전하지 않다?!
 - static data 를 동기화 없이 수정해버린다!!
+
+자바 병렬 프로그래밍.. 언젠가 참고
  */
