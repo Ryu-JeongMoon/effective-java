@@ -14,3 +14,8 @@ public class BasicInitialization {
 
   }
 }
+
+/*
+항상 일반적이고 쉬운 방법을 먼저 고려하자
+대부분의 상황에서는 이렇게 생성하는 것이 최선
+ */
