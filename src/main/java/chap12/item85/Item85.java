@@ -51,15 +51,21 @@ public class Item85 {
 
 예를 들어 ObjectInputStream 의 readObject 메서드를 호출하면 객체 그래프가 역직렬화되고
 classpath 안의 모든 타입의 객체를 만들어낼 수 있다?!
-이러한 타입들의 코드 전체가 공격 범위에 들어간다?!
+그 타입들 안의 모든 코드를 수행할 수 있기 때문이라고 한다
+따라서 이러한 타입들의 코드 전체가 공격 범위에 들어간다
+
 이를 해결하기 위해서는 deserialize 수행 시 입력 값에 대한 validation 을 수행해야 한다
 일일이 수행하는 것은 개귀찮은 일이므로 자바 9에 등장한 ObjectInputFilter 사용하면 된다
 요놈은 이전 버전과의 호환을 위해 이식 가능하도록 설계되었다
+역직렬화를 수행하기 전에 Filter 를 거치게 되는데 이 때
+<기본 수용> 모드에서 블랙리스트로 등록된 클래스는 거부한다
+<기본 거부> 모드에서는 화이트리스트로 안전성이 증명된 클래스만 허용한다
+요런 선택지가 있을 때는 기본적으로 화이트리스트로 관리하는 것이 안전하다
 
 일반적으로 사용하는 '직렬화'란 의미와 명확히 구분해야 한다
 단순하게 객체를 전송 가능한 형태로 전환하는 것을 일반적인 의미의 직렬화로 사용하고 Java Serialization 을 쓰는 것이 자바 직렬화를 의미한다
 자바 직렬화 위험을 피하는 가장 좋은 방법은 안 쓰는 것이다, 뭐여 그럼 뭐 써
-임의 객체 그래프를 자동으로 직렬화/역직렬화하지 않는 cross-platform structured representation 써라!
+임의 객체 그래프를 자동으로 직렬화/역직렬화하지 않는 cross-platform structured-data-representation 써라!
 JSON - readable data, designed for javascript
 Protocol Buffers (protobuf) - binary data (also provide readable data by pbtxt), designed for c++
  */
