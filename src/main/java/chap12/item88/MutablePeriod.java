@@ -9,7 +9,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.Date;
 
-public class MutablePeriod {
+public final class MutablePeriod {
 
   public final Period period;
 
