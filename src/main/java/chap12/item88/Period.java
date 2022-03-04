@@ -36,10 +36,12 @@ public class Period implements Serializable {
       '}';
   }
 
+  @Serial
   private void readObject(ObjectInputStream s) throws IOException, ClassNotFoundException {
     s.defaultReadObject();
   }
 
+  @Serial
   private void writeObject(ObjectOutputStream s) throws IOException {
     s.defaultWriteObject();
   }

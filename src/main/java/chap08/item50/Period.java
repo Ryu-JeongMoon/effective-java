@@ -1,5 +1,7 @@
 package chap08.item50;
 
+import java.io.InvalidObjectException;
+import java.io.ObjectInputStream;
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.Date;
@@ -45,6 +47,11 @@ public final class Period implements Serializable {
     return new Date(end.getTime());
   }
 
+  @Serial
+  private void readObject(ObjectInputStream stream) throws InvalidObjectException {
+    throw new InvalidObjectException("it needs proxy");
+  }
+
   private static class SerializationProxy implements Serializable {
 
     @Serial
@@ -56,6 +63,11 @@ public final class Period implements Serializable {
     public SerializationProxy(Period p) {
       this.start = p.start;
       this.end = p.end;
+    }
+
+    @Serial
+    private Object readResolve() {
+      return new Period(start, end);
     }
   }
 }

@@ -17,4 +17,5 @@ public class Item90 {
 /*
 implements Serializable 을 사용하는 순간, 또 다른 생성자를 사용할 수 있다는 의미이고 버그와 보안 문제가 발생할 수 있다
 이를 해결하기 위해 serialization proxy pattern 을 사용할 수 있다
+방어적 복사보다 약간 느리지만 그래도 더 안전!
  */

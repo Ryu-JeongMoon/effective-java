@@ -1,5 +1,6 @@
 package chap12.item89;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.Arrays;
 
@@ -16,6 +17,7 @@ public class Elvis implements Serializable {
     System.out.println(Arrays.toString(favoriteSongs));
   }
 
+  @Serial
   public Object readResolve() {
     return INSTANCE;
   }
